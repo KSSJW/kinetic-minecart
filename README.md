@@ -34,5 +34,3 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 
 ## Compatibility
 - It is recommended that you install the **Fabric API**.
-
-- Theoretically compatible with the new Minecart-Improvement experiment.
