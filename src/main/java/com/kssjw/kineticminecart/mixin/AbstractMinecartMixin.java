@@ -31,8 +31,8 @@ public abstract class AbstractMinecartMixin {
         double threshold = MinecartImpactHandler.MIN_SPEED_THRESHOLD;
         if (speedSqr < threshold * threshold) return;
 
-        // 根据速度动态调整检测范围（基础 0.2 再加速相关扩展）
-        double radius = 0.2 + Math.min(1.0, Math.sqrt(speedSqr)); 
+        // 检测范围
+        double radius = 0.5;
         AABB box = self.getBoundingBox().inflate(radius);
 
         // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
