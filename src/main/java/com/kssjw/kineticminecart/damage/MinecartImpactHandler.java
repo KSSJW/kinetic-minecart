@@ -1,5 +1,6 @@
 package com.kssjw.kineticminecart.damage;
 
+import com.kssjw.kineticminecart.mount.MinecartAutoMount;
 import com.kssjw.kineticminecart.util.EntityUtils;
 
 import net.minecraft.server.level.ServerLevel;
@@ -63,20 +64,25 @@ public class MinecartImpactHandler {
         // 计算伤害
         float speed = (float)Math.sqrt(speedSqr);
         float speed_per_sec = speed * 4;
-        System.out.println(speed_per_sec);
         float damage;
         if (speed_per_sec >= 6) {
             damage = (float)Math.pow(speed_per_sec, 3);
         } else if (speed_per_sec < 6 && speed_per_sec > 2) {
             damage = (float)Math.pow(speed_per_sec, 2);
-        } else return;
+        } else {
+
+            // 还原生物上车
+            MinecartAutoMount.maybeAutoMount(minecart);
+            return;
+        }
         
         DamageSource src = DamageSources.generic(serverLevel);  
 
-        // 对实体造成伤害，该方法虽然可能过时，但是能用就行（
-        target.hurt(src, damage);
+        if (target.isPassenger() && target.getVehicle() instanceof AbstractMinecart) {
+            return; // 坐在矿车上的乘客不被撞死
+        } else target.hurt(src, damage);   // 对实体造成伤害，该方法虽然可能过时，但是能用就行（
 
-        // 始终应用击退
+        // 应用击退
         Vec3 dir = target.position().subtract(minecart.position());
         double len = dir.length();
         Vec3 knockDir;
@@ -87,9 +93,10 @@ public class MinecartImpactHandler {
             knockDir = dir.scale(1.0 / len);
         }
 
-        // 第三个参数是击退距离
-        EntityUtils.knockBack(target, knockDir, (double)speed_per_sec);
-
+        if (speed_per_sec <= 2) {
+            return; // 速度过低不击退
+        } else EntityUtils.knockBack(target, knockDir, (double)speed_per_sec);  // 第三个参数是击退距离
+        
         // 恢复矿车原始速度，确保矿车动量不丢失
         minecart.setDeltaMovement(originalMv);
     }

@@ -39,8 +39,9 @@ public abstract class AbstractMinecartMixin {
         List<Entity> list = level.getEntities(self, box, e -> e != self && e.isAlive());
         if (list.isEmpty()) return;
 
-        // 对每个目标调用 handler（handler 内部处理冷却/服务端校验）
         for (Entity target : list) {
+
+            // 对每个目标调用 handler（handler 内部处理冷却/服务端校验）
             MinecartImpactHandler.tryApplyImpact(self, target);
         }
     }
