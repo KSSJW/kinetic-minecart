@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "kinetic-minecart",
+	"version": "1.21.9-beta.1",
+	"name": "Kinetic Minecart",
+	"description": "Impact damage from high-speed minecarts!",
+	"authors": [
+		"KSSJW"
+	],
+	"contact": {
+		"homepage": "https://github.com/KSSJW/kinetic-minecart",
+		"sources": "https://github.com/KSSJW/kinetic-minecart",
+		"issues": "https://github.com/KSSJW/kinetic-minecart/issues"
+	},
+	"license": "GPL-3.0",
+	"icon": "assets/kinetic-minecart/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.kssjw.kineticminecart.KineticMinecart"
+		],
+		"client": [
+			"com.kssjw.kineticminecart.client.KineticMinecartClient"
+		]
+	},
+	"mixins": [
+		"kinetic-minecart.mixins.json",
+		{
+			"config": "kinetic-minecart.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": ">=1.21.9",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

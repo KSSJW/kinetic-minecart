@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.kssjw.kineticminecart.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"AbstractMinecartMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
