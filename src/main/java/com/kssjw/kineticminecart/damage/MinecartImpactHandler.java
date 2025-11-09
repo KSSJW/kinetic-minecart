@@ -25,9 +25,6 @@ public class MinecartImpactHandler {
 
     private MinecartImpactHandler() {}
 
-    // 忽略某些过时方法的警告
-    @SuppressWarnings("deprecation")
-
     // 尝试对 target 应用矿车撞击效果（伤害 + 击退）
     // 仅在服务端执行
     public static void tryApplyImpact(AbstractMinecart minecart, Entity target) {
