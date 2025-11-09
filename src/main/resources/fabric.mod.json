@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "kinetic-minecart",
-	"version": "1.21.9-release.2",
+	"version": "1.20.5-release.1",
 	"name": "Kinetic Minecart",
 	"description": "Impact damage from high-speed minecarts!",
 	"authors": [
@@ -31,8 +31,8 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": ">=1.21.9",
+		"fabricloader": ">=0.15.10",
+		"minecraft": ">=1.20.5 <=1.20.6",
 		"java": ">=21",
 		"fabric-api": "*"
 	},

@@ -25,9 +25,6 @@ public class MinecartImpactHandler {
 
     private MinecartImpactHandler() {}
 
-    // 忽略某些过时方法的警告
-    @SuppressWarnings("deprecation")
-
     // 尝试对 target 应用矿车撞击效果（伤害 + 击退）
     // 仅在服务端执行
     public static void tryApplyImpact(AbstractMinecart minecart, Entity target) {
@@ -80,8 +77,7 @@ public class MinecartImpactHandler {
 
         if (target.isPassenger() && target.getVehicle() instanceof AbstractMinecart) {
             return; // 坐在矿车上的乘客不被撞死
-        } else target.hurt(src, damage);   // 对实体造成伤害，该方法虽然可能过时，但是能用就行（
-
+        } else target.hurt(src, damage);   // 对实体造成伤害
         // 应用击退
         Vec3 dir = target.position().subtract(minecart.position());
         double len = dir.length();
