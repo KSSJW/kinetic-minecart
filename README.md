@@ -17,11 +17,11 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 ## Features
 - The damage dealt by minecarts is related to their speed:
 ```
-	Speed >= 6			-> Damage = Speed cubed;
+Speed >= 6			-> Damage = Speed cubed;
 
-	Speed > 2 and < 6 	-> Damage = Speed squared;
+Speed > 2 and < 6 	-> Damage = Speed squared;
 
-	Speed <= 2			-> Damage = 0;
+Speed <= 2			-> Damage = 0;
 ```
 > [!NOTE]
 > Theoretically, there is **No Damage Limit**.
@@ -34,3 +34,4 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 
 ## Compatibility
 - It is recommended that you install the **Fabric API**.
+
