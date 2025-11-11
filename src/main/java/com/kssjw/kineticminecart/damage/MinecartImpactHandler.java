@@ -5,7 +5,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.kssjw.kineticminecart.util.SpeedJudge;
 
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -19,20 +18,14 @@ public class MinecartImpactHandler {
     // lastHitTicks 存储 entityId -> lastHitGameTime（server tick time）
     private static final Map<Integer, Long> lastHitTicks = new ConcurrentHashMap<>();
 
-    // 忽略某些过时方法的警告
-    @SuppressWarnings("deprecation")
-
     // 仅在服务端执行
     public static void tryApplyImpact(AbstractMinecart minecart, Entity target) {
 
         if (minecart == null || target == null) return;
 
-        Level level = minecart.level();
+        Level level = minecart.getLevel();
         if (level == null || level.isClientSide()) return; // 仅在服务端执行
                
-        // 强转 ServerLevel 以获取 DamageSource 工厂（DamageSources 工具类）
-        if (!(level instanceof ServerLevel serverLevel)) return;
-
         // 冷却检查
         long now = level.getGameTime();
         int tid = target.getId();
@@ -56,7 +49,7 @@ public class MinecartImpactHandler {
         } else return;
 
         // 处刑
-        DamageSource src = DamageSources.generic(serverLevel);  
+        DamageSource src = DamageSources.generic();  
         target.hurt(src, damage);   // 对实体造成伤害，该方法虽然可能过时，但是能用就行（
 
         // Testing Logger
