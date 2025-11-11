@@ -19,9 +19,6 @@ public class MinecartImpactHandler {
     // lastHitTicks 存储 entityId -> lastHitGameTime（server tick time）
     private static final Map<Integer, Long> lastHitTicks = new ConcurrentHashMap<>();
 
-    // 忽略某些过时方法的警告
-    @SuppressWarnings("deprecation")
-
     // 仅在服务端执行
     public static void tryApplyImpact(AbstractMinecart minecart, Entity target) {
 
