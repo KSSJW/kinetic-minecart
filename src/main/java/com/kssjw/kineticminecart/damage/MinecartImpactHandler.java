@@ -19,20 +19,17 @@ public class MinecartImpactHandler {
     // lastHitTicks 存储 entityId -> lastHitGameTime（server tick time）
     private static final Map<Integer, Long> lastHitTicks = new ConcurrentHashMap<>();
 
-    // 忽略某些过时方法的警告
-    @SuppressWarnings("deprecation")
-
     // 仅在服务端执行
     public static void tryApplyImpact(AbstractMinecart minecart, Entity target) {
 
         if (minecart == null || target == null) return;
 
-        Level level = minecart.level();
+        Level level = minecart.getLevel();
         if (level == null || level.isClientSide()) return; // 仅在服务端执行
-               
+
         // 强转 ServerLevel 以获取 DamageSource 工厂（DamageSources 工具类）
         if (!(level instanceof ServerLevel serverLevel)) return;
-
+               
         // 冷却检查
         long now = level.getGameTime();
         int tid = target.getId();
