@@ -21,8 +21,8 @@ public final class MinecartAutoMount {
     public static void maybeAutoMount(AbstractMinecart minecart) {
 
         // 仅服务器端
-        if (minecart.level().isClientSide()) return;
-        if (!(minecart.level() instanceof ServerLevel)) return;
+        if (minecart.getCommandSenderWorld().isClientSide()) return;
+        if (!(minecart.getCommandSenderWorld() instanceof ServerLevel)) return;
 
         // 排除情况
         if (
@@ -32,12 +32,12 @@ public final class MinecartAutoMount {
 
         // 原版未激活的动力铁轨上的矿车不能吸引生物
         BlockPos pos = minecart.blockPosition();
-        BlockState state = minecart.level().getBlockState(pos);
+        BlockState state = minecart.getCommandSenderWorld().getBlockState(pos);
         if (state.getBlock() instanceof PoweredRailBlock && !state.getValue(PoweredRailBlock.POWERED)) return;
         
         // 检测范围内的实体
         AABB box = minecart.getBoundingBox();
-        List<Entity> nearby = minecart.level().getEntities(minecart, box, canAutoMountFilter(minecart));
+        List<Entity> nearby = minecart.getCommandSenderWorld().getEntities(minecart, box, canAutoMountFilter(minecart));
 
         for (Entity e : nearby) {
 
@@ -55,7 +55,7 @@ public final class MinecartAutoMount {
         return entity -> {
 
             // 排除情况
-            if (entity.level().isClientSide()   // 排除客户端
+            if (entity.getCommandSenderWorld().isClientSide()   // 排除客户端
                 || entity.isPassenger() // 排除已经在骑乘
                 || entity.isVehicle()   // 排除被骑
                 || entity instanceof ItemEntity // 排除掉落物与其他非生物实体

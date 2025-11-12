@@ -23,7 +23,7 @@ public abstract class AbstractMinecartMixin {
     private void onTick(CallbackInfo ci) {
         AbstractMinecart self = (AbstractMinecart) (Object) this;
 
-        Level level = self.level(); 
+        Level level = self.getCommandSenderWorld();
         if (level == null || level.isClientSide()) return; // 仅服务端处理
 
         SpeedJudge.catchedSpeed = SpeedJudge.getSpeed(self);
