@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -21,8 +22,8 @@ public final class MinecartAutoMount {
     public static void maybeAutoMount(AbstractMinecart minecart) {
 
         // 仅服务器端
-        if (minecart.level().isClientSide()) return;
-        if (!(minecart.level() instanceof ServerLevel)) return;
+        if (minecart.getCommandSenderWorld().isClientSide()) return;
+        if (!(minecart.getCommandSenderWorld() instanceof ServerLevel)) return;
 
         // 排除情况
         if (
@@ -31,13 +32,14 @@ public final class MinecartAutoMount {
         ) return;
 
         // 原版未激活的动力铁轨上的矿车不能吸引生物
-        BlockPos pos = minecart.blockPosition();
-        BlockState state = minecart.level().getBlockState(pos);
+        Vec3 vec = minecart.getPos(0, 0, 0);    // 老版本没有一些方法，故修改
+        BlockPos pos = new BlockPos(vec.x, vec.y, vec.z);   // 同上
+        BlockState state = minecart.getCommandSenderWorld().getBlockState(pos);
         if (state.getBlock() instanceof PoweredRailBlock && !state.getValue(PoweredRailBlock.POWERED)) return;
         
         // 检测范围内的实体
         AABB box = minecart.getBoundingBox();
-        List<Entity> nearby = minecart.level().getEntities(minecart, box, canAutoMountFilter(minecart));
+        List<Entity> nearby = minecart.getCommandSenderWorld().getEntities(minecart, box, canAutoMountFilter(minecart));
 
         for (Entity e : nearby) {
 
@@ -55,7 +57,7 @@ public final class MinecartAutoMount {
         return entity -> {
 
             // 排除情况
-            if (entity.level().isClientSide()   // 排除客户端
+            if (entity.getCommandSenderWorld().isClientSide()   // 排除客户端
                 || entity.isPassenger() // 排除已经在骑乘
                 || entity.isVehicle()   // 排除被骑
                 || entity instanceof ItemEntity // 排除掉落物与其他非生物实体
