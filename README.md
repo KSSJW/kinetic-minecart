@@ -45,5 +45,4 @@ Speed <= 2			-> Damage = 0;
 > [!NOTE]
 > In multiplayer mode, you cannot change the configuration via the menu; instead, the server administrator needs to modify the 'kinetic-minecart.json' file. Below is an example:
 
-
 ![Config File](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/ConfigFile.png)
