@@ -1,12 +1,18 @@
 package com.kssjw.kineticminecart;
 
+import com.kssjw.kineticminecart.manager.HolderManager;
+import com.kssjw.kineticminecart.util.LogUtil;
+
 import net.fabricmc.api.ModInitializer;
 
 public class KineticMinecart implements ModInitializer {
-    public static final String MOD_ID = "kinetic-minecart";
-
+    
     @Override
     public void onInitialize() {
-        System.out.println(MOD_ID + " initialized");
+
+        // 注册配置与监听器
+        HolderManager.init();
+        
+        LogUtil.print("Initialized.");
     }
 }

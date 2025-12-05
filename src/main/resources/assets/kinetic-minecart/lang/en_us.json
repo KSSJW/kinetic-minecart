@@ -1,0 +1,43 @@
+{
+    "text.autoconfig.kinetic-minecart.title": "Kinetic Minecart Configuration",
+
+    "text.autoconfig.kinetic-minecart.category.general": "General Settings",
+    "text.autoconfig.kinetic-minecart.category.types": "Types Settings",
+
+    "text.autoconfig.kinetic-minecart.option.enabled": "Enable Status",
+
+    "text.autoconfig.kinetic-minecart.option.excludePlayer": "Exclude Player",
+
+    "text.autoconfig.kinetic-minecart.option.excludePet": "Exclude Pet",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[0]": "Excluding domesticated or owned",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[1]": "dogs, horses, etc.",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[2]": "\n",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[3]": "§6Note: §fSome special organisms",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[4]": "cannot be excluded!",
+
+    "text.autoconfig.kinetic-minecart.option.excludeNamedEntity": "Exclude Named Entity",
+    "text.autoconfig.kinetic-minecart.option.excludeItemEntity": "Exclude Item Entity",
+
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList": "Enable Exclusion List",
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList.@Tooltip[0]": "Once enabled, you can customize",
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList.@Tooltip[1]": "which entities to exclude.",
+
+    "text.autoconfig.kinetic-minecart.option.exclusionList": "Exclusion List",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[0]": "§6Note: §fYou need to look up the entity's ID yourself;",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[1]": "it needs to include the §6NameSpace.",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[2]": "The Mod has an auto-completion function",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[3]": "for namespaces,",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[4]": "but this may result in errors.",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[5]": "\n",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[6]": "For example: §aminecraft:creeper",
+
+    "screen.kinetic-minecart.IllegalOperationScreen.title": "§cIllegal Operation",
+    "screen.kinetic-minecart.IllegalOperationScreen.desc": ":( Don't be discouraged, this is not a bug.\n\nIt looks like you're playing a multiplayer game.\nYou cannot change the server configuration through this setting.\n\nIf you need to make changes, please contact the server administrator\nto modify the configuration file.\n§6... > config > kinetic-minecart.json",
+    "screen.kinetic-minecart.IllegalOperationScreen.yes": "OK",
+    "screen.kinetic-minecart.IllegalOperationScreen.no": "OK",
+
+    "toast.kinetic-minecart.ExclusionList.title": "Exclusion List",
+    "toast.kinetic-minecart.ExclusionList.desc.empty": "Exclusion List is empty.",
+    "toast.kinetic-minecart.ExclusionList.desc.detected": "Exclusion List content detected. ",
+    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§cError: §fUnknown ID in "
+}

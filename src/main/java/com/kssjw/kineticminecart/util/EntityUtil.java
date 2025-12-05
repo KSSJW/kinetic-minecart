@@ -3,7 +3,9 @@ package com.kssjw.kineticminecart.util;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 
-public final class EntityUtils {
+public final class EntityUtil {
+
+    private EntityUtil() {}
 
     public static boolean isValidTarget(Entity entity) {
         return entity.isAlive();
@@ -28,10 +30,5 @@ public final class EntityUtils {
 
         // 应用新的速度
         entity.setDeltaMovement(next);
-
-        // 在部分映射/版本中，你可能希望标记实体已被外力影响以便同步表现
-        // 如果需要，可在这里对特定实体类型触发额外逻辑（例如对 LivingEntity 调用 knockback 效果）
     }
-
-    private EntityUtils() {}
 }
