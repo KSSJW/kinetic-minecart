@@ -14,6 +14,14 @@ public class ValueConfig implements ConfigData {
     @ConfigEntry.Category("general")
     public boolean enabled = true;
 
+    // 启用伤害
+    @ConfigEntry.Category("general")
+    public boolean enabledImpact = true;
+
+    // 启用击退
+    @ConfigEntry.Category("general")
+    public boolean enabledKnock = true;
+
     // 排除玩家
     @ConfigEntry.Category("types")
     public boolean excludePlayer = false;  
@@ -22,6 +30,10 @@ public class ValueConfig implements ConfigData {
     @ConfigEntry.Category("types")
     @ConfigEntry.Gui.Tooltip(count = 5)
     public boolean excludePet = false;
+
+    // 排除乘客
+    @ConfigEntry.Category("types")
+    public boolean excludePassenger = false;
 
     // 排除被命名的实体
     @ConfigEntry.Category("types")
@@ -32,13 +44,12 @@ public class ValueConfig implements ConfigData {
     public boolean excludeItemEntity = false;
 
     // 排除列表功能
-    // TODO
-    @ConfigEntry.Category("types")
+    @ConfigEntry.Category("advanced")
     @ConfigEntry.Gui.Tooltip(count = 2)
     public boolean enabledExclusionList = false;
 
     // 排除列表
-    @ConfigEntry.Category("types")
+    @ConfigEntry.Category("advanced")
     @ConfigEntry.Gui.Tooltip(count = 7)
     public List<String> exclusionList = new ArrayList<>();
 }

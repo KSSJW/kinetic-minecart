@@ -37,14 +37,18 @@ public class CartImpactUtil {
         if (last != null && (now - last) < SpeedUtil.COOLDOWN_TICKS) return;
         lastHitTicks.put(tid, now);
 
-        // 排除情况
-        if (
-            target instanceof AbstractMinecart  // 避免矿车被"撞死"，哈哈哈矿车也是生物(
-            || (target.isPassenger() && target.getVehicle() instanceof AbstractMinecart)    // 坐在矿车上的乘客不被撞死
-        ) return;
+        // 避免矿车被"撞死"，哈哈哈矿车也是生物(
+        if (target instanceof AbstractMinecart) return;
 
-        // 计算伤害
+        // 避免被自己坐的矿车干掉
+        if (target.getVehicle() == minecart) return;
+
         float damage;
+
+        // 目标为乘客时计算伤害（模拟载具抵挡了部分伤害）
+        if (target.isPassenger() == true) damage = (float)SpeedUtil.catchedSpeed;
+
+        // 正常情况计算伤害
         if (SpeedUtil.catchedSpeed >= 6) {
             damage = (float)Math.pow(SpeedUtil.catchedSpeed, 3);
         } else if (SpeedUtil.catchedSpeed < 6 && SpeedUtil.catchedSpeed > 2) {

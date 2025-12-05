@@ -33,12 +33,16 @@ public class ExclusionListUtil {
 
         MutableComponent sb = Component.empty();
 
+        boolean detected = false;
         for (String id : inputList) {
             ResourceLocation rl = ResourceLocation.tryParse(id);
             EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getOptional(rl).orElse(null);
 
             if (type != null) {
-                sb.append(Component.translatable("toast.kinetic-minecart.ExclusionList.desc.detected"));
+                if (detected == false) {
+                    sb.append(Component.translatable("toast.kinetic-minecart.ExclusionList.desc.detected"));
+                    detected = true;    // 避免重复输出
+                }
             } else {
 
                 // 匹配失败 → 显示无法识别
@@ -46,6 +50,7 @@ public class ExclusionListUtil {
             } 
         }
 
+        detected = false;   // 重置检测状态
         return sb;
     }
 }

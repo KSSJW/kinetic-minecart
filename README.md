@@ -15,9 +15,8 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 - Cloth Config API (Required)
 - Mod Menu (Recommended)
 
-## Gallery
-![A Creeper that was hit](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/Big.png)
-![Configuration](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/Configuration.png)
+## Main Gallery
+![A Creeper that was hit](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Big.png)
 
 ## Features
 - The damage dealt by minecarts is related to their speed:
@@ -25,6 +24,8 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 Speed >= 6			-> Damage = Speed cubed;
 
 Speed > 2 and < 6 	-> Damage = Speed squared;
+
+Target has Vehicle  -> Damage = Speed;
 
 Speed <= 2			-> Damage = 0;
 ```
@@ -40,9 +41,16 @@ Speed <= 2			-> Damage = 0;
 > [!NOTE]
 > You can edit the exclusion list, click on an item to name or delete it, and the inspection tool will attempt to proofread your input. (Sometimes, when you create a new item, the new text box may not appear; you may see an empty one, but this does not affect selection or input.)
 
-![Exclusion List](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/ExclusionList.png)
+![Exclusion List](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/ExclusionList.png)
 
 > [!NOTE]
 > In multiplayer mode, you cannot change the configuration via the menu; instead, the server administrator needs to modify the 'kinetic-minecart.json' file. Below is an example:
 
-![Config File](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/ConfigFile.png)
+![Config File](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/ConfigFile.png)
+
+## Configuration Gallery
+![Configuration1](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/Configuration1.png)
+
+![Configuration2](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/Configuration2.png)
+
+![Configuration3](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/Configuration3.png)

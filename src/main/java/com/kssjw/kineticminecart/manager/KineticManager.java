@@ -3,7 +3,7 @@ package com.kssjw.kineticminecart.manager;
 import java.util.List;
 
 import com.kssjw.kineticminecart.util.CartImpactUtil;
-import com.kssjw.kineticminecart.util.CartKonckUtil;
+import com.kssjw.kineticminecart.util.CartKnockUtil;
 import com.kssjw.kineticminecart.util.FilterUtil;
 import com.kssjw.kineticminecart.util.SpeedUtil;
 
@@ -41,9 +41,9 @@ public class KineticManager {
                 // 用户自定义排除
                 if (FilterUtil.isEntityExcluded(target) == true) continue;
 
-                // 对每个目标调用 handler（handler 内部处理冷却/服务端校验）
-                CartImpactUtil.tryApplyImpact(self, target);
-                CartKonckUtil.tryApplyKonck(self, target);
+                // 读取配置，按需对每个目标调用 handler（handler 内部处理冷却/服务端校验）
+                if (ConfigManager.isEnabledImpact() == true) CartImpactUtil.tryApplyImpact(self, target);
+                if (ConfigManager.isEnabledKnock() == true) CartKnockUtil.tryApplyKnock(self, target);
             }
         }
     }

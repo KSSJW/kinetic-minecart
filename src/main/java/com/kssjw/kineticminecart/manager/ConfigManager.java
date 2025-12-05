@@ -14,6 +14,14 @@ public class ConfigManager {
         return config.enabled;
     }
 
+    public static boolean isEnabledImpact() {
+        return config.enabledImpact;
+    }
+
+    public static boolean isEnabledKnock() {
+        return config.enabledKnock;
+    }
+
     /* ------ */
 
     public static boolean isExcludePlayer() {
@@ -22,6 +30,10 @@ public class ConfigManager {
 
     public static boolean isExcluePet() {
         return config.excludePet;
+    }
+
+    public static boolean isExcludePassenger() {
+        return config.excludePassenger;
     }
 
     public static boolean isExcludeNamedEntity() {

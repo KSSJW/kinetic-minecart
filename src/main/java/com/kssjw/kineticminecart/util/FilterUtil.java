@@ -49,10 +49,12 @@ public class FilterUtil {
         } else return false;
     }
 
+    // 主方法，判断是非被排除
     public static boolean isEntityExcluded(Entity entity) {
         if (
             ConfigManager.isExcludePlayer() == true && entity instanceof Player
             || ConfigManager.isExcluePet() == true && isPet(entity) == true
+            || ConfigManager.isExcludePassenger() == true && entity.isPassenger() == true
             || ConfigManager.isExcludeNamedEntity() == true && entity.hasCustomName() == true
             || ConfigManager.isExcludItemEntity() == true && entity instanceof ItemEntity
             || ConfigManager.isEnabledExclusionList() == true && isInExclusionList(entity) == true
