@@ -3,8 +3,11 @@
 
     "text.autoconfig.kinetic-minecart.category.general": "General Settings",
     "text.autoconfig.kinetic-minecart.category.types": "Types Settings",
+    "text.autoconfig.kinetic-minecart.category.advanced": "Advanced Settings",
 
-    "text.autoconfig.kinetic-minecart.option.enabled": "Enable Status",
+    "text.autoconfig.kinetic-minecart.option.enabled": "Enable Mod",
+    "text.autoconfig.kinetic-minecart.option.enabledImpact": "Enable Impact Damage",
+    "text.autoconfig.kinetic-minecart.option.enabledKnock": "Enable Knockback",
 
     "text.autoconfig.kinetic-minecart.option.excludePlayer": "Exclude Player",
 
@@ -15,6 +18,7 @@
     "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[3]": "§6Note: §fSome special organisms",
     "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[4]": "cannot be excluded!",
 
+    "text.autoconfig.kinetic-minecart.option.excludePassenger": "Exclude Passenger",
     "text.autoconfig.kinetic-minecart.option.excludeNamedEntity": "Exclude Named Entity",
     "text.autoconfig.kinetic-minecart.option.excludeItemEntity": "Exclude Item Entity",
 

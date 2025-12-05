@@ -4,11 +4,11 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.phys.Vec3;
 
-public class CartKonckUtil {
+public class CartKnockUtil {
 
-    private CartKonckUtil() {}
+    private CartKnockUtil() {}
 
-    public static void tryApplyKonck(AbstractMinecart minecart, Entity target) {
+    public static void tryApplyKnock(AbstractMinecart minecart, Entity target) {
 
         // 应用击退
         Vec3 dir = target.position().subtract(minecart.position());

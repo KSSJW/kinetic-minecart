@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "kinetic-minecart",
-	"version": "2.0.0-rc.1+1.21.9",
+	"version": "2.0.0-rc.2+1.21.9",
 	"name": "Kinetic Minecart",
-	"description": "§3(Core: §ay25m12b1) §7Impact damage from high-speed minecarts!",
+	"description": "§3(Based on §ay25m12b2) §7Impact damage from high-speed minecarts!",
 	"authors": [
 		"KSSJW"
 	],
