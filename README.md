@@ -35,8 +35,6 @@ Speed <= 2			-> Damage = 0;
 
 - Minecarts do not stop after hitting an entity.
 
-- The impact of a minecart has no effect on item entities.
-
 - It offers custom configuration options, including customizing the collision effects of the minecart.
 
 > [!NOTE]
@@ -46,5 +44,6 @@ Speed <= 2			-> Damage = 0;
 
 > [!NOTE]
 > In multiplayer mode, you cannot change the configuration via the menu; instead, the server administrator needs to modify the 'kinetic-minecart.json' file. Below is an example:
+
 
 ![Config File](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/ConfigFile.png)
