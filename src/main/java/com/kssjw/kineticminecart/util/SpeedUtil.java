@@ -3,7 +3,9 @@ package com.kssjw.kineticminecart.util;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.phys.Vec3;
 
-public class SpeedJudge {
+public class SpeedUtil {
+
+    private SpeedUtil() {}
 
     // 全局调用数值
     public static Vec3 mv;
@@ -12,7 +14,7 @@ public class SpeedJudge {
     public static float catchedSpeed;
 
     // 可调参数，伤害值与击退强度被移用到后面
-    public static double MIN_SPEED_THRESHOLD = 0.2; // 最低速度阈值（平方和阈值会用 lengthSqr 比较）
+    private static double MIN_SPEED_THRESHOLD = 0.2; // 最低速度阈值（平方和阈值会用 lengthSqr 比较）
 
     public static float getSpeed(AbstractMinecart minecart) {
         return normalSpeedProcessor(minecart);  // 目前不需要 advancedSpeedProcessor
@@ -29,7 +31,7 @@ public class SpeedJudge {
         if (speedSqr < MIN_SPEED_THRESHOLD * MIN_SPEED_THRESHOLD) return 0;
 
         // 速度转换
-        float speed = (float)Math.sqrt(SpeedJudge.speedSqr);
+        float speed = (float)Math.sqrt(SpeedUtil.speedSqr);
         float speed_per_sec = speed * 4;
 
         // 恢复矿车原始速度，确保矿车动量不丢失
