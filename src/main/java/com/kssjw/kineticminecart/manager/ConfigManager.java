@@ -44,6 +44,8 @@ public class ConfigManager {
         return config.excludeItemEntity;
     }
 
+    /* ------ */
+
     public static boolean isEnabledExclusionList() {
         return config.enabledExclusionList;
     }

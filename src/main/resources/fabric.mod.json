@@ -1,16 +1,25 @@
 {
 	"schemaVersion": 1,
 	"id": "kinetic-minecart",
-	"version": "2.0.0-rc.2+1.21.9",
+	"version": "2.0.0+1.21.9",
 	"name": "Kinetic Minecart",
-	"description": "§3(Based on §ay25m12b2) §7Impact damage from high-speed minecarts!",
+	"description": "Impact damage from high-speed minecarts!",
 	"authors": [
 		"KSSJW"
 	],
 	"contact": {
 		"homepage": "https://github.com/KSSJW/kinetic-minecart",
-		"sources": "https://github.com/KSSJW/kinetic-minecart",
-		"issues": "https://github.com/KSSJW/kinetic-minecart/issues"
+		"issues": "https://github.com/KSSJW/kinetic-minecart/issues",
+		"sources": "https://github.com/KSSJW/kinetic-minecart"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.modrinth": "https://modrinth.com/mod/kinetic-minecart",
+				"modmenu.discord": "https://discord.gg/Ms9P9YsZXt",
+				"modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/kinetic-minecart"
+			}
+		}
 	},
 	"license": "GPL-3.0",
 	"icon": "assets/kinetic-minecart/logo/icon.png",

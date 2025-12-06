@@ -35,6 +35,7 @@ public class FilterUtil {
                 return true;
             }
         }
+
         return false;   // 默认不排除
     }
 
@@ -49,7 +50,7 @@ public class FilterUtil {
         } else return false;
     }
 
-    // 主方法，判断是非被排除
+    // 主方法，判断是否被排除
     public static boolean isEntityExcluded(Entity entity) {
         if (
             ConfigManager.isExcludePlayer() == true && entity instanceof Player
