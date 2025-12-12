@@ -5,7 +5,7 @@ import com.kssjw.kineticminecart.config.ValueConfig;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
-import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.AutoConfigClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.ConfirmScreen;
 
@@ -23,7 +23,7 @@ public class ConfigMenu implements ModMenuApi {
                 ConfirmScreen confirmScreen = IllegalOperationScreen.get(parent);
                 return confirmScreen;   // 多人模式拦截
             } else {
-                return AutoConfig.getConfigScreen(ValueConfig.class, parent).get();
+                return AutoConfigClient.getConfigScreen(ValueConfig.class, parent).get();
             }
         };
     }

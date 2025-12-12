@@ -1,6 +1,6 @@
 package com.kssjw.kineticminecart.util;
 
-import net.minecraft.world.entity.vehicle.AbstractMinecart;
+import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
 import net.minecraft.world.phys.Vec3;
 
 public class SpeedUtil {
