@@ -1,0 +1,47 @@
+{
+    "text.autoconfig.kinetic-minecart.title": "動能礦車設",
+    
+    "text.autoconfig.kinetic-minecart.category.general": "凡用之設",
+    "text.autoconfig.kinetic-minecart.category.types": "類別之設",
+    "text.autoconfig.kinetic-minecart.category.advanced": "進階之設",
+
+    "text.autoconfig.kinetic-minecart.option.enabled": "啟用此模",
+    "text.autoconfig.kinetic-minecart.option.enabledImpact": "啟用衝擊傷",
+    "text.autoconfig.kinetic-minecart.option.enabledKnock": "啟用擊退",
+
+    "text.autoconfig.kinetic-minecart.option.excludePlayer": "不及於人",
+
+    "text.autoconfig.kinetic-minecart.option.excludePet": "不及於畜",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[0]": "凡馴養有主者，",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[1]": "如犬、馬之屬。",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[2]": "\n",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[3]": "§6注: §f殊類之生，",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[4]": "或不可免。",
+
+    "text.autoconfig.kinetic-minecart.option.excludePassenger": "不及於乘者",
+    "text.autoconfig.kinetic-minecart.option.excludeNamedEntity": "不及於名者",
+    "text.autoconfig.kinetic-minecart.option.excludeItemEntity": "不及於物",
+
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList": "啟用排除錄",
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList.@Tooltip[0]": "啟之，則可自定所不及之類。",
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList.@Tooltip[1]": "",
+
+    "text.autoconfig.kinetic-minecart.option.exclusionList": "排除錄",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[0]": "§6注: §f須自覓其 ID，",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[1]": "並含§6命名空間。",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[2]": "模組有自補命名之能，",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[3]": "然或致誤。",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[4]": "\n",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[5]": "如：§aminecraft:creeper",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[6]": "",
+
+    "screen.kinetic-minecart.IllegalOperationScreen.title": "§c操作不許",
+    "screen.kinetic-minecart.IllegalOperationScreen.desc": ":( 勿灰心，此非謬。\n\n似汝方行多人之戲。\n此設不得改伺服之配。\n\n若欲更之，請告伺服之主，改其檔案。\n§6... > config > kinetic-minecart.json",
+    "screen.kinetic-minecart.IllegalOperationScreen.yes": "然",
+    "screen.kinetic-minecart.IllegalOperationScreen.no": "然",
+
+    "toast.kinetic-minecart.ExclusionList.title": "排除錄",
+    "toast.kinetic-minecart.ExclusionList.desc.empty": "排除錄空。",
+    "toast.kinetic-minecart.ExclusionList.desc.detected": "已覺排除錄之文。",
+    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§c謬: §f未知之 "
+}

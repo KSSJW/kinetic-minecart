@@ -1,0 +1,47 @@
+{
+    "text.autoconfig.kinetic-minecart.title": "Kinetic Minecart 配置",
+
+    "text.autoconfig.kinetic-minecart.category.general": "通用设置",
+    "text.autoconfig.kinetic-minecart.category.types": "类型设置",
+    "text.autoconfig.kinetic-minecart.category.advanced": "高级设置",
+
+    "text.autoconfig.kinetic-minecart.option.enabled": "启用模组",
+    "text.autoconfig.kinetic-minecart.option.enabledImpact": "启用撞击伤害",
+    "text.autoconfig.kinetic-minecart.option.enabledKnock": "启用击退",
+
+    "text.autoconfig.kinetic-minecart.option.excludePlayer": "排除玩家",
+
+    "text.autoconfig.kinetic-minecart.option.excludePet": "排除宠物",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[0]": "排除被驯服或有主人的",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[1]": "狗，马，等等。",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[2]": "\n",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[3]": "§6注: §f一些特殊的生物",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[4]": "不能被排除！",
+
+    "text.autoconfig.kinetic-minecart.option.excludePassenger": "排除乘客",
+    "text.autoconfig.kinetic-minecart.option.excludeNamedEntity": "排除被命名的实体",
+    "text.autoconfig.kinetic-minecart.option.excludeItemEntity": "排除掉落物实体",
+
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList": "启用排除列表",
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList.@Tooltip[0]": "启用后，您可以自定义要排除哪些的实体",
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList.@Tooltip[1]": "",
+
+    "text.autoconfig.kinetic-minecart.option.exclusionList": "排除列表",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[0]": "§6注: §f您需要自行查阅实体的ID，",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[1]": "包含§6命名空间。",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[2]": "模组有自动补全命名空间的函数，",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[3]": "但是有可能会出错。",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[4]": "\n",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[5]": "例如：§aminecraft:creeper",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[6]": "",
+
+    "screen.kinetic-minecart.IllegalOperationScreen.title": "§c不允许的操作",
+    "screen.kinetic-minecart.IllegalOperationScreen.desc": ":( 不要灰心，这不是Bug。\n\n看起来您正在进行多人游戏。\n您不能通过该设置更改服务器的配置。\n\n如需更改，请联系服务器管理员来更改配置文件。\n§6... > config > kinetic-minecart.json",
+    "screen.kinetic-minecart.IllegalOperationScreen.yes": "好的",
+    "screen.kinetic-minecart.IllegalOperationScreen.no": "好的",
+
+    "toast.kinetic-minecart.ExclusionList.title": "排除列表",
+    "toast.kinetic-minecart.ExclusionList.desc.empty": "排除列表为空。",
+    "toast.kinetic-minecart.ExclusionList.desc.detected": "检测到排除列表的内容。 ",
+    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§c错误: §f未知的 "
+}
