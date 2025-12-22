@@ -15,6 +15,9 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 - Cloth Config API (Required)
 - Mod Menu (Recommended)
 
+## Progress
+Check out the latest development progress here. [Development Progress](windysky.gitbook.io/main/minecraft/kinetic-minecart/version)
+
 ## Main Gallery
 ![A Creeper that was hit](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Big.png)
 
@@ -51,3 +54,4 @@ Speed <= 2			-> Damage = 0;
 ![Configuration1](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration1.png)
 ![Configuration2](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration2.png)
 ![Configuration3](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration3.png)
+
