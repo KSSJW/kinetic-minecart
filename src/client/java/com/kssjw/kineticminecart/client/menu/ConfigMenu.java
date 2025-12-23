@@ -6,18 +6,18 @@ import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
 import me.shedaniel.autoconfig.AutoConfigClient;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.ConfirmScreen;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ConfirmScreen;
 
 public class ConfigMenu implements ModMenuApi {
     
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return parent -> {
-            Minecraft mc = Minecraft.getInstance();
+            MinecraftClient mc = MinecraftClient.getInstance();
 
-            boolean inWorld = mc.level != null && mc.player != null;
-            boolean isMultiplayerWorld = inWorld && !mc.hasSingleplayerServer();
+            boolean inWorld = mc.world != null && mc.player != null;
+            boolean isMultiplayerWorld = inWorld && mc.getCurrentServerEntry() != null;
             
             if (isMultiplayerWorld) {
                 ConfirmScreen confirmScreen = IllegalOperationScreen.get(parent);

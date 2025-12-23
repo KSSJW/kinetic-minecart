@@ -1,25 +1,22 @@
 package com.kssjw.kineticminecart.client.util;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.toasts.SystemToast;
-import net.minecraft.network.chat.Component;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.toast.SystemToast;
+import net.minecraft.client.toast.ToastManager;
+import net.minecraft.text.Text;
 
 public class ToastUtil {
 
     private ToastUtil() {}
-    
-    public static void showToast(Component title, Component desc) {
-        Minecraft mc = Minecraft.getInstance();
 
-        // 创建一个 SystemToast
-        SystemToast toast = new SystemToast(
-            SystemToast.SystemToastId.NARRATOR_TOGGLE,
+    public static void toast(Text title, Text description) {
+        ToastManager toastManager = MinecraftClient.getInstance().getToastManager();
+        SystemToast.show(
+            toastManager,
+            SystemToast.Type.NARRATOR_TOGGLE,
             title,
-            desc
+            description
         );
-
-        // 显示
-        mc.getToastManager().addToast(toast);
     }
 }
 

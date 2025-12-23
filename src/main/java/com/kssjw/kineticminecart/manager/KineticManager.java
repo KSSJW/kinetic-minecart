@@ -7,18 +7,18 @@ import com.kssjw.kineticminecart.util.CartKnockUtil;
 import com.kssjw.kineticminecart.util.FilterUtil;
 import com.kssjw.kineticminecart.util.SpeedUtil;
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.vehicle.AbstractMinecartEntity;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
 
 public class KineticManager {
     
-    public static void handler(AbstractMinecart self) {
+    public static void handler(AbstractMinecartEntity self) {
         
         // 仅服务端处理
-        Level level = self.level(); 
-        if (level == null || level.isClientSide()) return;
+        World world = self.getEntityWorld();
+        if (world == null || world.isClient()) return;
 
         // 开关拦截
         if (ConfigManager.isEnabled() == false) return;
@@ -30,10 +30,10 @@ public class KineticManager {
 
             // 检测范围
             double radius = 0.5;
-            AABB box = self.getBoundingBox().inflate(radius);
+            Box box = self.getBoundingBox().expand(radius);
 
             // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
-            List<Entity> list = level.getEntities(self, box, e -> e != self && e.isAlive());
+            List<Entity> list = world.getOtherEntities(self, box, e -> e != self && e.isAlive());
             if (list.isEmpty()) return;
 
             for (Entity target : list) {

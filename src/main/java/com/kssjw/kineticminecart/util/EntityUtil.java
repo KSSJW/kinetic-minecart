@@ -1,7 +1,7 @@
 package com.kssjw.kineticminecart.util;
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.Vec3d;
 
 public final class EntityUtil {
 
@@ -12,23 +12,23 @@ public final class EntityUtil {
     }
 
     /**
-     * 对实体施加一次速度推力（非直接伤害），在现代映射中使用 setDeltaMovement 替代已移除的 velocityModified / addVelocity。
+     * 对实体施加一次速度推力（非直接伤害）
      *
      * @param entity    目标实体
      * @param direction 单位方向向量（不必规范化，方法内部会按 strength 缩放）
      * @param strength  强度系数
      */
-    public static void knockBack(Entity entity, Vec3 direction, double strength) {
+    public static void knockBack(Entity entity, Vec3d direction, double strength) {
         if (entity == null) return;
 
         // 计算附加速度（direction 乘以强度）
-        Vec3 add = direction.scale(strength);
+        Vec3d add = direction.multiply(strength);
 
         // 获取当前速度并累加
-        Vec3 current = entity.getDeltaMovement();
-        Vec3 next = current.add(add);
+        Vec3d current = entity.getVelocity();
+        Vec3d next = current.add(add);
 
         // 应用新的速度
-        entity.setDeltaMovement(next);
+        entity.setVelocity(next);
     }
 }
