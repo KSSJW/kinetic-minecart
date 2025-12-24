@@ -8,6 +8,9 @@
     "text.autoconfig.kinetic-minecart.option.enabled": "Enable Mod",
     "text.autoconfig.kinetic-minecart.option.enabledImpact": "Enable Impact Damage",
     "text.autoconfig.kinetic-minecart.option.enabledKnock": "Enable Knockback",
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "Application Mode",
+    "option.kinetic-minecart.radius": "Radius",
+    "option.kinetic-minecart.collide": "Collide",
 
     "text.autoconfig.kinetic-minecart.option.excludePlayer": "Exclude Player",
 

@@ -6,6 +6,7 @@ import com.kssjw.kineticminecart.util.CartImpactUtil;
 import com.kssjw.kineticminecart.util.CartKnockUtil;
 import com.kssjw.kineticminecart.util.FilterUtil;
 import com.kssjw.kineticminecart.util.SpeedUtil;
+import com.kssjw.kineticminecart.config.ValueConfig;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
@@ -41,10 +42,22 @@ public class KineticManager {
                 // 用户自定义排除
                 if (FilterUtil.isEntityExcluded(target) == true) continue;
 
+                // 碰撞模式
+                if (ConfigManager.getSelectedApplicaionMode() == ValueConfig.applicaionMode.Collide && self.getBoundingBox().intersects(target.getBoundingBox()) == false) continue;
+
                 // 读取配置，按需对每个目标调用 handler（handler 内部处理冷却/服务端校验）
                 if (ConfigManager.isEnabledImpact() == true) CartImpactUtil.tryApplyImpact(self, target);
                 if (ConfigManager.isEnabledKnock() == true) CartKnockUtil.tryApplyKnock(self, target);
             }
+        }
+    }
+
+    public static int collide() {
+        if (ConfigManager.getSelectedApplicaionMode() != ValueConfig.applicaionMode.Collide) return -1;
+        if (SpeedUtil.catchedSpeed > 2) {
+            return 0;
+        } else {
+            return -1;
         }
     }
 }

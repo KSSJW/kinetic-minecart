@@ -22,6 +22,10 @@ public class ConfigManager {
         return config.enabledKnock;
     }
 
+    public static ValueConfig.applicaionMode getSelectedApplicaionMode() {
+        return config.selectedApplicaionMode;
+    }
+
     /* ------ */
 
     public static boolean isExcludePlayer() {
