@@ -33,6 +33,12 @@ public class ValueConfig implements ConfigData {
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     public applicaionMode selectedApplicaionMode = applicaionMode.Collide;
+
+    // 半径（仅半径模式有效）
+    @ConfigEntry.Category("general")
+    @ConfigEntry.Gui.Tooltip(count = 5)
+    @ConfigEntry.BoundedDiscrete(min = 3, max = 10)
+    public int intRadius = 5;
     
     // 启用伤害
     @ConfigEntry.Category("general")

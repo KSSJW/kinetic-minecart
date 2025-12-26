@@ -6,6 +6,10 @@
     "text.autoconfig.kinetic-minecart.category.advanced": "進階設定",
 
     "text.autoconfig.kinetic-minecart.option.enabled": "啟用模組",
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "應用模式",
+    "option.kinetic-minecart.radius": "半徑",
+    "option.kinetic-minecart.collide": "碰撞",
+    "text.autoconfig.kinetic-minecart.option.intRadius": "半径",
     "text.autoconfig.kinetic-minecart.option.enabledImpact": "啟用撞擊傷害",
     "text.autoconfig.kinetic-minecart.option.enabledKnock": "啟用擊退",
 

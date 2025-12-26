@@ -29,25 +29,48 @@ public class KineticManager {
         // 若矿车速度不足则跳过,避免频繁查询实体
         if (SpeedUtil.catchedSpeed > 2) {
 
-            // 检测范围
-            double radius = 0.5;
-            Box box = self.getBoundingBox().expand(radius);
+            if (ConfigManager.getSelectedApplicaionMode() == ValueConfig.applicaionMode.Collide) {
 
-            // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
-            List<Entity> list = world.getOtherEntities(self, box, e -> e != self && e.isAlive());
-            if (list.isEmpty()) return;
+                // 检测范围
+                Box box = self.getBoundingBox();
 
-            for (Entity target : list) {
+                // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
+                List<Entity> list = world.getOtherEntities(self, box, e -> e != self && e.isAlive());
+                if (list.isEmpty()) return;
 
-                // 用户自定义排除
-                if (FilterUtil.isEntityExcluded(target) == true) continue;
+                for (Entity target : list) {
 
-                // 碰撞模式
-                if (ConfigManager.getSelectedApplicaionMode() == ValueConfig.applicaionMode.Collide && self.getBoundingBox().intersects(target.getBoundingBox()) == false) continue;
+                    // 用户自定义排除
+                    if (FilterUtil.isEntityExcluded(target) == true) continue;
 
-                // 读取配置，按需对每个目标调用 handler（handler 内部处理冷却/服务端校验）
-                if (ConfigManager.isEnabledImpact() == true) CartImpactUtil.tryApplyImpact(self, target);
-                if (ConfigManager.isEnabledKnock() == true) CartKnockUtil.tryApplyKnock(self, target);
+                    // 未在碰撞箱内
+                    if (self.getBoundingBox().intersects(target.getBoundingBox()) == false) continue;
+
+                    // 读取配置，按需对每个目标调用 handler（handler 内部处理冷却/服务端校验）
+                    if (ConfigManager.isEnabledImpact() == true) CartImpactUtil.tryApplyImpact(self, target);
+                    if (ConfigManager.isEnabledKnock() == true) CartKnockUtil.tryApplyKnock(self, target);
+                }
+            }
+
+            if (ConfigManager.getSelectedApplicaionMode() == ValueConfig.applicaionMode.Radius) {
+
+                // 检测范围
+                double radius = ConfigManager.getRadius();
+                Box box = self.getBoundingBox().expand(radius);
+
+                // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
+                List<Entity> list = world.getOtherEntities(self, box, e -> e != self && e.isAlive());
+                if (list.isEmpty()) return;
+
+                for (Entity target : list) {
+
+                    // 用户自定义排除
+                    if (FilterUtil.isEntityExcluded(target) == true) continue;
+
+                    // 读取配置，按需对每个目标调用 handler（handler 内部处理冷却/服务端校验）
+                    if (ConfigManager.isEnabledImpact() == true) CartImpactUtil.tryApplyImpact(self, target);
+                    if (ConfigManager.isEnabledKnock() == true) CartKnockUtil.tryApplyKnock(self, target);
+                }
             }
         }
     }
