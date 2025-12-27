@@ -9,7 +9,12 @@
     "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "應用模式",
     "option.kinetic-minecart.radius": "半徑",
     "option.kinetic-minecart.collide": "相撞",
-    "text.autoconfig.kinetic-minecart.option.intRadius": "半径",
+    "text.autoconfig.kinetic-minecart.option.intRadius": "半徑",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[0]": "只在應用模式設為半徑時生效",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[1]": "\n",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[2]": "註：數值會轉換為小數",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[3]": "例：5 -> 0.5 方塊",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[4]": "",
     "text.autoconfig.kinetic-minecart.option.enabledImpact": "啟用撞擊傷害",
     "text.autoconfig.kinetic-minecart.option.enabledKnock": "啟用擊退",
 

@@ -41,7 +41,11 @@ Speed <= 2			-> Damage = 0;
 
 - It offers custom configuration options, including customizing the collision effects of the minecart.
 
-## Notes
+## Configuration
+![Configuration1](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration1.png)
+![Configuration2](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration2.png)
+![Configuration3](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration3.png)
+
 - You can edit the exclusion list, click on an item to name or delete it, and the inspection tool will attempt to proofread your input. (Sometimes, when you create a new item, the new text box may not appear; you may see an empty one, but this does not affect selection or input.)
 
 ![Exclusion List](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/ExclusionList.png)
@@ -50,8 +54,5 @@ Speed <= 2			-> Damage = 0;
 
 ![Config File](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/ConfigFile.png)
 
-## Configuration Gallery
-![Configuration1](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration1.png)
-![Configuration2](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration2.png)
-![Configuration3](https://raw.githubusercontent.com/KSSJW/kinetic-minecart/refs/heads/dev/images/Configuration3.png)
-
+- selectedApplicaionMode -> Radius / Collide
+- intRadius -> 3 ~ 10 (5 -> 0.5 block)
