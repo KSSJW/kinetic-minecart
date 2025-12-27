@@ -6,7 +6,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -40,7 +39,7 @@ public class ExclusionListUtil {
         boolean detected = false;
         for (String id : inputList) {
             Identifier rl = Identifier.tryParse(id);
-            EntityType<?> type = Registries.ENTITY_TYPE.getOptional(RegistryKey.of(RegistryKeys.ENTITY_TYPE, rl)).map(RegistryEntry::value).orElse(null);
+            EntityType<?> type = Registries.ENTITY_TYPE.get(RegistryKey.of(RegistryKeys.ENTITY_TYPE, rl));
 
             if (type != null) {
                 if (detected == false) {
