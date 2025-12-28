@@ -8,19 +8,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.kssjw.kineticminecart.manager.KineticManager;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.vehicle.AbstractMinecartEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
 
-@Mixin(AbstractMinecartEntity.class)
+@Mixin(AbstractMinecart.class)
 public abstract class AbstractMinecartMixin {
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
-        AbstractMinecartEntity self = (AbstractMinecartEntity) (Object) this;
+        AbstractMinecart self = (AbstractMinecart) (Object) this;
         KineticManager.handler(self);
     }
 
-    @Inject(method = "collidesWith", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "canCollideWith", at = @At("HEAD"), cancellable = true)
     public void onCollidesWith(Entity other, CallbackInfoReturnable<Boolean> cir) {
         switch (KineticManager.collide()) {
             case -1:

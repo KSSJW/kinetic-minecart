@@ -6,7 +6,7 @@ import java.util.List;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import net.minecraft.text.Text;
+import net.minecraft.network.chat.Component;
 
 @Config(name = "kinetic-minecart")
 public class ValueConfig implements ConfigData {
@@ -20,7 +20,7 @@ public class ValueConfig implements ConfigData {
 
         @Override
         public String toString() {
-            return Text.translatable(key).getString();
+            return Component.translatable(key).getString();
         }
         
     }

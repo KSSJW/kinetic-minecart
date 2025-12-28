@@ -3,16 +3,13 @@ package com.kssjw.kineticminecart;
 import com.kssjw.kineticminecart.manager.HolderManager;
 import com.kssjw.kineticminecart.util.LogUtil;
 
-import net.fabricmc.api.ModInitializer;
+import net.neoforged.fml.common.Mod;
 
-public class KineticMinecart implements ModInitializer {
-    
-    @Override
-    public void onInitialize() {
+@Mod("kineticminecart")
+public class KineticMinecart {
 
-        // 注册配置与监听器
+    public KineticMinecart() {
         HolderManager.init();
-        
         LogUtil.print("Initialized.");
     }
 }

@@ -6,20 +6,21 @@ import com.kssjw.kineticminecart.util.CartImpactUtil;
 import com.kssjw.kineticminecart.util.CartKnockUtil;
 import com.kssjw.kineticminecart.util.FilterUtil;
 import com.kssjw.kineticminecart.util.SpeedUtil;
-import com.kssjw.kineticminecart.config.ValueConfig;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.vehicle.AbstractMinecartEntity;
-import net.minecraft.util.math.Box;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+
+import com.kssjw.kineticminecart.config.ValueConfig;
 
 public class KineticManager {
     
-    public static void handler(AbstractMinecartEntity self) {
+    public static void handler(AbstractMinecart self) {
         
         // 仅服务端处理
-        World world = self.getEntityWorld();
-        if (world == null || world.isClient()) return;
+        Level level = self.level();
+        if (level == null || level.isClientSide()) return;
 
         // 开关拦截
         if (ConfigManager.isEnabled() == false) return;
@@ -32,10 +33,10 @@ public class KineticManager {
             if (ConfigManager.getSelectedApplicaionMode() == ValueConfig.applicaionMode.Collide) {
 
                 // 检测范围
-                Box box = self.getBoundingBox();
+                AABB box = self.getBoundingBox();
 
                 // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
-                List<Entity> list = world.getOtherEntities(self, box, e -> e != self && e.isAlive());
+                List<Entity> list = level.getEntities(self, box, e -> e != self && e.isAlive());
                 if (list.isEmpty()) return;
 
                 for (Entity target : list) {
@@ -56,10 +57,10 @@ public class KineticManager {
 
                 // 检测范围
                 double radius = ConfigManager.getRadius();
-                Box box = self.getBoundingBox().expand(radius);
+                AABB box = self.getBoundingBox().inflate(radius);
 
                 // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
-                List<Entity> list = world.getOtherEntities(self, box, e -> e != self && e.isAlive());
+                List<Entity> list = level.getEntities(self, box, e -> e != self && e.isAlive());
                 if (list.isEmpty()) return;
 
                 for (Entity target : list) {

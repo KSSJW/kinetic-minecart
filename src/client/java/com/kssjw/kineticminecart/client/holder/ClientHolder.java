@@ -10,10 +10,10 @@ import com.kssjw.kineticminecart.util.ExclusionListUtil;
 import com.kssjw.kineticminecart.util.LogUtil;
 
 import me.shedaniel.autoconfig.ConfigHolder;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionResult;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.loading.FMLEnvironment;
 
 public class ClientHolder {
 
@@ -32,14 +32,14 @@ public class ClientHolder {
                     .collect(Collectors.toList());
 
                 // 显示提示
-                Text title = Text.translatable("toast.kinetic-minecart.ExclusionList.title");
-                Text desc = ExclusionListUtil.buildMessage(ConfigManager.getExclusionList());
-                if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-                    ToastUtil.toast(title, desc);
+                Component title = Component.translatable("toast.kinetic-minecart.ExclusionList.title");
+                Component desc = ExclusionListUtil.buildMessage(ConfigManager.getExclusionList());
+                if (FMLEnvironment.getDist() == Dist.CLIENT) {
+                    ToastUtil.showToast(title, desc);
                 }
             }
             LogUtil.print("The configuration has been saved.");
-            return ActionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         });
     }
 }
