@@ -2,12 +2,12 @@ package com.kssjw.kineticminecart.util;
 
 import com.kssjw.kineticminecart.manager.ConfigManager;
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.TamableAnimal;
-import net.minecraft.world.entity.animal.horse.AbstractHorse;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.passive.AbstractHorseEntity;
+import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.Registries;
 
 public class FilterUtil {
 
@@ -16,22 +16,16 @@ public class FilterUtil {
     // 排除宠物
     private static boolean isPet(Entity entity) {
 
-        // 判断继承自TamableAnimal的类
-        if (entity instanceof TamableAnimal) {
-            TamableAnimal animal = (TamableAnimal)entity;
-            if (
-                animal.isTame()
-                || animal.getOwner() != null
-            ) return true;
+        // 判断继承自TameableEntity的类
+        if (entity instanceof TameableEntity) {
+            TameableEntity animal = (TameableEntity)entity;
+            if (animal.isTamed() || animal.getOwner() != null) return true;
         }
 
-        // 判断继承自AbstractHorse的类
-        if (entity instanceof AbstractHorse) {
-            AbstractHorse horse = (AbstractHorse)entity;
-            if (
-                horse.isTamed()
-                || horse.getOwner() != null
-            ) {
+        // 判断继承自AbstractHorseEntity的类
+        if (entity instanceof AbstractHorseEntity) {
+            AbstractHorseEntity horse = (AbstractHorseEntity)entity;
+            if (horse.isTame() || horse.getOwner() != null) {
                 return true;
             }
         }
@@ -43,7 +37,7 @@ public class FilterUtil {
     private static boolean isInExclusionList(Entity entity) {
 
         // 获取实体的注册名
-        String id = EntityType.getKey(entity.getType()).toString();
+        String id = Registries.ENTITY_TYPE.getId(entity.getType()).toString();
 
         if (ConfigManager.getExclusionList().contains(id) == true) {
             return true;
@@ -53,9 +47,9 @@ public class FilterUtil {
     // 主方法，判断是否被排除
     public static boolean isEntityExcluded(Entity entity) {
         if (
-            ConfigManager.isExcludePlayer() == true && entity instanceof Player
+            ConfigManager.isExcludePlayer() == true && entity instanceof PlayerEntity
             || ConfigManager.isExcluePet() == true && isPet(entity) == true
-            || ConfigManager.isExcludePassenger() == true && entity.isPassenger() == true
+            || ConfigManager.isExcludePassenger() == true && entity.hasVehicle() == true
             || ConfigManager.isExcludeNamedEntity() == true && entity.hasCustomName() == true
             || ConfigManager.isExcludItemEntity() == true && entity instanceof ItemEntity
             || ConfigManager.isEnabledExclusionList() == true && isInExclusionList(entity) == true
