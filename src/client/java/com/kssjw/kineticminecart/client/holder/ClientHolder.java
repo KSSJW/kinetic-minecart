@@ -34,7 +34,7 @@ public class ClientHolder {
                 // 显示提示
                 Component title = Component.translatable("toast.kinetic-minecart.ExclusionList.title");
                 Component desc = ExclusionListUtil.buildMessage(ConfigManager.getExclusionList());
-                if (FMLEnvironment.getDist() == Dist.CLIENT) {
+                if (FMLEnvironment.dist == Dist.CLIENT) {
                     ToastUtil.showToast(title, desc);
                 }
             }

@@ -5,7 +5,7 @@ import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 
 public class ExclusionListUtil {
@@ -14,12 +14,12 @@ public class ExclusionListUtil {
     
     // 列表归一化方法
     public static String normalizeId(String id) {
-    Identifier rl = Identifier.tryParse(id);
+    ResourceLocation rl = ResourceLocation.tryParse(id);
 
         if (rl == null) return id; // 无效 ID 原样返回
 
         if (rl.getNamespace().isEmpty()) {
-            rl = Identifier.fromNamespaceAndPath("minecraft", rl.getPath());
+            rl = ResourceLocation.fromNamespaceAndPath("minecraft", rl.getPath());
         }
         return rl.toString(); // 保存成 "minecraft:xxx"
     }
@@ -36,7 +36,7 @@ public class ExclusionListUtil {
 
         boolean detected = false;
         for (String id : inputList) {
-            Identifier rl = Identifier.tryParse(id);
+            ResourceLocation rl = ResourceLocation.tryParse(id);
             EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getOptional(rl).orElse(null);
 
             if (type != null) {

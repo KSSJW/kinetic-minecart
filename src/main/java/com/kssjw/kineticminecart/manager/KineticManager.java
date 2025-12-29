@@ -8,7 +8,7 @@ import com.kssjw.kineticminecart.util.FilterUtil;
 import com.kssjw.kineticminecart.util.SpeedUtil;
 
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
+import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 

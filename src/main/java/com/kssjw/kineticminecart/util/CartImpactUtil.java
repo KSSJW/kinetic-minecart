@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
+import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.level.Level;
 
 public class CartImpactUtil {
@@ -54,6 +54,6 @@ public class CartImpactUtil {
 
         // 处刑
         DamageSource src = DamageSourcesUtil.generic(serverLevel);  
-        target.hurtServer(serverLevel, src, damage);    // 对实体造成伤害
+        target.hurt(src, damage);    // 对实体造成伤害
     }
 }

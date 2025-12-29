@@ -19,8 +19,6 @@ public class ToastUtil {
         );
 
         // 显示
-        mc.getToastManager().addToast(toast);
+        mc.getToasts().addToast(toast);
     }
 }
-
-    

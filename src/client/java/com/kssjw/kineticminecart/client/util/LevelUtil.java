@@ -3,7 +3,7 @@ package com.kssjw.kineticminecart.client.util;
 import com.kssjw.kineticminecart.client.screen.IllegalOperationScreen;
 import com.kssjw.kineticminecart.config.ValueConfig;
 
-import me.shedaniel.autoconfig.AutoConfigClient;
+import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.ConfirmScreen;
 import net.minecraft.client.gui.screens.Screen;
@@ -22,7 +22,7 @@ public class LevelUtil {
             ConfirmScreen confirmScreen = IllegalOperationScreen.get(parent);
             return confirmScreen;   // 多人模式拦截
         } else {
-            return AutoConfigClient.getConfigScreen(ValueConfig.class, parent).get();
+            return AutoConfig.getConfigScreen(ValueConfig.class, parent).get();
         }
     }
 }

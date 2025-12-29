@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.kssjw.kineticminecart.manager.KineticManager;
 
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
+import net.minecraft.world.entity.vehicle.AbstractMinecart;
 
 @Mixin(AbstractMinecart.class)
 public abstract class AbstractMinecartMixin {
