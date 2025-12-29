@@ -11,9 +11,12 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 [![Github](https://img.shields.io/badge/Published%20in-GitHub-808284?logo=github&logoColor=white)](https://github.com/KSSJW/kinetic-minecart/releases) [![Modrinth](https://img.shields.io/badge/Published%20in-Modrinth-1bd96a?logo=modrinth&logoColor=white)](https://modrinth.com/mod/kinetic-minecart) [![CurseForge](https://img.shields.io/badge/Published%20in-CurseForge-f16436?logo=curseforge&logoColor=white)](https://www.curseforge.com/minecraft/mc-mods/kinetic-minecart)
 
 ## Compatibility
-- Fabric API (Required only with Fabric loader)
-- Cloth Config API (Required)
-- Mod Menu (Recommended only with Fabric loader)
+- ### Fabric
+  - Fabric API (Required)
+  - Cloth Config API (Required)
+  - Mod Menu (Recommended)
+- ### NeoForge
+  - Cloth Config API (Required)
 
 ## Progress
 Check out the latest development progress here. [Development Progress](https://windysky.gitbook.io/main/minecraft/kinetic-minecart/version)
@@ -57,4 +60,5 @@ Speed <= 2			-> Damage = 0;
 - selectedApplicaionMode -> Radius / Collide
 
 - intRadius -> 3 ~ 10 (5 -> 0.5 block)
+
 
