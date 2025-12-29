@@ -8,6 +8,7 @@ rm -rf classes/
 
 # eclipse
 rm *.launch
+rm -rf .eclipse/
 
 # idea
 rm -rf .idea/
