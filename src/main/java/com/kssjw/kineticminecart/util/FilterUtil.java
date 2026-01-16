@@ -37,7 +37,7 @@ public class FilterUtil {
     private static boolean isInExclusionList(Entity entity) {
 
         // 获取实体的注册名
-        String id = Registries.ENTITY_TYPE.getKey(entity.getType()).toString();
+        String id = Registries.ENTITY_TYPE.getId(entity.getType()).toString();
 
         if (ConfigManager.getExclusionList().contains(id) == true) {
             return true;
