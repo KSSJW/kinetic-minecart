@@ -21,7 +21,7 @@ public class CartImpactUtil {
 
         if (minecart == null || target == null) return;
 
-        World world = minecart.getEntityWorld();
+        World world = minecart.getWorld();
         if (world == null || world.isClient()) return; // 仅在服务端执行
                
         // 强转 ServerWorld 以获取 DamageSource 工厂（DamageSources 工具类）

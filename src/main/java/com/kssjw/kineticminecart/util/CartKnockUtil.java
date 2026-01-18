@@ -11,7 +11,7 @@ public class CartKnockUtil {
     public static void tryApplyKnock(AbstractMinecartEntity minecart, Entity target) {
 
         // 应用击退
-        Vec3d dir = target.getEntityPos().subtract(minecart.getEntityPos());
+        Vec3d dir = target.getPos().subtract(minecart.getPos());
         double len = dir.length();
         Vec3d knockDir;
         if (len <= 1e-6) {

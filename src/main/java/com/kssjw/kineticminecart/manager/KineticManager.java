@@ -18,7 +18,7 @@ public class KineticManager {
     public static void handler(AbstractMinecartEntity self) {
         
         // 仅服务端处理
-        World world = self.getEntityWorld();
+        World world = self.getWorld();
         if (world == null || world.isClient()) return;
 
         // 开关拦截
