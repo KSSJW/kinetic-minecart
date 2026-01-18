@@ -6,6 +6,15 @@
     "text.autoconfig.kinetic-minecart.category.advanced": "高级设置",
 
     "text.autoconfig.kinetic-minecart.option.enabled": "启用模组",
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "应用模式",
+    "option.kinetic-minecart.radius": "半径",
+    "option.kinetic-minecart.collide": "碰撞",
+    "text.autoconfig.kinetic-minecart.option.intRadius": "半径",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[0]": "仅在应用模式设置为半径时生效",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[1]": "\n",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[2]": "注：数值会被转换为小数",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[3]": "例：5 -> 0.5 方块",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[4]": "",
     "text.autoconfig.kinetic-minecart.option.enabledImpact": "启用撞击伤害",
     "text.autoconfig.kinetic-minecart.option.enabledKnock": "启用击退",
 

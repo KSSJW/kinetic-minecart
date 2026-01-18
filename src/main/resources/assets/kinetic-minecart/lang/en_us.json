@@ -6,6 +6,15 @@
     "text.autoconfig.kinetic-minecart.category.advanced": "Advanced Settings",
 
     "text.autoconfig.kinetic-minecart.option.enabled": "Enable Mod",
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "Application Mode",
+    "option.kinetic-minecart.radius": "Radius",
+    "option.kinetic-minecart.collide": "Collide",
+    "text.autoconfig.kinetic-minecart.option.intRadius": "Radius",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[0]": "This only takes effect",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[1]": "when the Application Mode is set to Radius.",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[2]": "\n",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[3]": "Note: The value will be converted to a decimal.",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[4]": "Example: 5 -> 0.5 bock",
     "text.autoconfig.kinetic-minecart.option.enabledImpact": "Enable Impact Damage",
     "text.autoconfig.kinetic-minecart.option.enabledKnock": "Enable Knockback",
 
