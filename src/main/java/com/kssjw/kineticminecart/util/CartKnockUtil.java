@@ -1,24 +1,24 @@
 package com.kssjw.kineticminecart.util;
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.vehicle.AbstractMinecart;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.vehicle.AbstractMinecartEntity;
+import net.minecraft.util.math.Vec3d;
 
 public class CartKnockUtil {
 
     private CartKnockUtil() {}
 
-    public static void tryApplyKnock(AbstractMinecart minecart, Entity target) {
+    public static void tryApplyKnock(AbstractMinecartEntity minecart, Entity target) {
 
         // 应用击退
-        Vec3 dir = target.position().subtract(minecart.position());
+        Vec3d dir = target.getPos().subtract(minecart.getPos());
         double len = dir.length();
-        Vec3 knockDir;
+        Vec3d knockDir;
         if (len <= 1e-6) {
-            Vec3 carDir = SpeedUtil.mv.lengthSqr() > 1e-6 ? SpeedUtil.mv.normalize() : new Vec3(0, 0.5, 0);
+            Vec3d carDir = SpeedUtil.mv.lengthSquared() > 1e-6 ? SpeedUtil.mv.normalize() : new Vec3d(0, 0.5, 0);
             knockDir = carDir.normalize();
         } else {
-            knockDir = dir.scale(1.0 / len);
+            knockDir = dir.multiply(1.0 / len);
         }
 
         // 速度过低不击退

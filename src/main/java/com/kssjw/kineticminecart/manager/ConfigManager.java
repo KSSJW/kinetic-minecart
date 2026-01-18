@@ -14,6 +14,14 @@ public class ConfigManager {
         return config.enabled;
     }
 
+    public static ValueConfig.applicaionMode getSelectedApplicaionMode() {
+        return config.selectedApplicaionMode;
+    }
+
+    public static double getRadius() {
+        return (double)config.intRadius / 10.0;
+    }
+
     public static boolean isEnabledImpact() {
         return config.enabledImpact;
     }
