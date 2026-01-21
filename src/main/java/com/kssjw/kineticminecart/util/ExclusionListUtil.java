@@ -19,7 +19,7 @@ public class ExclusionListUtil {
         if (rl == null) return id; // 无效 ID 原样返回
 
         if (rl.getNamespace().isEmpty()) {
-            rl = ResourceLocation.fromNamespaceAndPath("minecraft", rl.getPath());
+            rl = new ResourceLocation("minecraft", rl.getPath());
         }
         return rl.toString(); // 保存成 "minecraft:xxx"
     }

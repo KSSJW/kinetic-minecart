@@ -3,7 +3,7 @@ package com.kssjw.kineticminecart;
 import com.kssjw.kineticminecart.manager.HolderManager;
 import com.kssjw.kineticminecart.util.LogUtil;
 
-import net.neoforged.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod;
 
 @Mod("kineticminecart")
 public class KineticMinecart {

@@ -1,23 +1,28 @@
 package com.kssjw.kineticminecart.client;
 
-import net.neoforged.fml.ModLoadingContext;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-
 import com.kssjw.kineticminecart.client.holder.ClientHolder;
 import com.kssjw.kineticminecart.client.util.LevelUtil;
-import net.neoforged.api.distmarker.Dist;
 
-@Mod(value = "kineticminecart", dist = Dist.CLIENT)
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ConfigScreenHandler.ConfigScreenFactory;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+@Mod.EventBusSubscriber(modid = "kineticminecart", bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)   
 public class KineticMinecartClient {
 
-    public KineticMinecartClient() {
+    @SubscribeEvent
+    public static void onClientSetup(FMLClientSetupEvent event) {
         ClientHolder.init();
         ModLoadingContext.get().registerExtensionPoint(
-            IConfigScreenFactory.class,
-            () -> (mod, parent) -> {
-                return LevelUtil.judge(parent);
-            }
+            ConfigScreenFactory.class,
+            () -> new ConfigScreenFactory(
+                (mc, parent) -> {
+                    return LevelUtil.judge(parent);
+                }
+            )
         );
     }
 }

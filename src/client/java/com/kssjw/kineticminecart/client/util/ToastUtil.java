@@ -13,7 +13,7 @@ public class ToastUtil {
 
         // 创建一个 SystemToast
         SystemToast toast = new SystemToast(
-            SystemToast.SystemToastId.NARRATOR_TOGGLE,
+            SystemToast.SystemToastIds.NARRATOR_TOGGLE,
             title,
             desc
         );

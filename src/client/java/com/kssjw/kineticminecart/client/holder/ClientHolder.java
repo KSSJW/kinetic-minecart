@@ -12,8 +12,8 @@ import com.kssjw.kineticminecart.util.LogUtil;
 import me.shedaniel.autoconfig.ConfigHolder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fml.loading.FMLEnvironment;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
 public class ClientHolder {
 
