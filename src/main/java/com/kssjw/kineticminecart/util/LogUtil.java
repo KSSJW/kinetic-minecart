@@ -1,10 +1,18 @@
 package com.kssjw.kineticminecart.util;
 
 // 笨猫猫额外写的日志系统
-public class Logger {
+public class LogUtil {
+
+    private LogUtil() {}
+    
+    private static final String HEAD = "[Kinetic Minecart] ";    // 最后有一个空格
 
     // 缓存数据
-    public static float tempLoggerSpeed;
+    private static float tempLoggerSpeed;
+
+    public static void print(String str) {
+        System.out.println(HEAD + str);
+    }
 
     public static void printSpeed(float loggerSpeed) {
 
@@ -21,7 +29,7 @@ public class Logger {
         if (floatSimpleLoggerSpeed == tempLoggerSpeed) {
             return;
         } else {
-            System.out.println("loggerSpeed: " + floatSimpleLoggerSpeed);
+            System.out.println(HEAD + "loggerSpeed: " + floatSimpleLoggerSpeed);
             tempLoggerSpeed = floatSimpleLoggerSpeed;  // 缓存速度
         }
     }
@@ -32,7 +40,7 @@ public class Logger {
         String stringSimpleLoggerDamage = String.format("%.2f", loggerDamage);
         float floatSimpleLoggerDamage = Float.parseFloat(stringSimpleLoggerDamage);
 
-        System.out.println("loggerDamage: " + floatSimpleLoggerDamage);
+        System.out.println(HEAD + "loggerDamage: " + floatSimpleLoggerDamage);
     }
     
     public static void printKnockDistance(double loggerKnockDistance) {
@@ -41,6 +49,6 @@ public class Logger {
         String stringSimpleLoggerKnockDistance = String.format("%.2f", loggerKnockDistance);
         double doubleSimpleLoggerKnockDistance = Double.parseDouble(stringSimpleLoggerKnockDistance);
 
-        System.out.println("loggerKnockDistance: " + doubleSimpleLoggerKnockDistance);
+        System.out.println(HEAD + "loggerKnockDistance: " + doubleSimpleLoggerKnockDistance);
     }
 }
