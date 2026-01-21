@@ -4,18 +4,29 @@ import java.util.List;
 
 import com.kssjw.kineticminecart.config.ValueConfig;
 
-import me.shedaniel.autoconfig.AutoConfig;
-
 public class ConfigManager {
     
-    public static ValueConfig config = AutoConfig.getConfigHolder(ValueConfig.class).getConfig();
+    public static ValueConfig config = LoadManager.isAPIFound() ? me.shedaniel.autoconfig.AutoConfig.getConfigHolder(ValueConfig.class).getConfig() : null;
 
     public static boolean isEnabled() {
-        return config.enabled;
+        return LoadManager.isAPIFound() ? config.enabled : true;
     }
 
-    public static ValueConfig.applicaionMode getSelectedApplicaionMode() {
-        return config.selectedApplicaionMode;
+    public static String getSelectedApplicaionMode() {
+        if (LoadManager.isAPIFound()) {
+            switch (config.selectedApplicaionMode) {
+                case ValueConfig.applicaionMode.Collide:
+                    return "Collide";
+            
+                case ValueConfig.applicaionMode.Radius:
+                    return "Radius";
+
+                default:
+                    return null;
+            }
+        } else {
+            return "Collide";
+        }
     }
 
     public static double getRadius() {
@@ -23,39 +34,39 @@ public class ConfigManager {
     }
 
     public static boolean isEnabledImpact() {
-        return config.enabledImpact;
+        return LoadManager.isAPIFound() ? config.enabledImpact : true;
     }
 
     public static boolean isEnabledKnock() {
-        return config.enabledKnock;
+        return LoadManager.isAPIFound() ? config.enabledKnock : true;
     }
 
     /* ------ */
 
     public static boolean isExcludePlayer() {
-        return config.excludePlayer;
+        return LoadManager.isAPIFound() ? config.excludePlayer : false;
     }
 
     public static boolean isExcluePet() {
-        return config.excludePet;
+        return LoadManager.isAPIFound() ? config.excludePet : false;
     }
 
     public static boolean isExcludePassenger() {
-        return config.excludePassenger;
+        return LoadManager.isAPIFound() ? config.excludePassenger : false;
     }
 
     public static boolean isExcludeNamedEntity() {
-        return config.excludeNamedEntity;
+        return LoadManager.isAPIFound() ? config.excludeNamedEntity : false;
     }
 
     public static boolean isExcludItemEntity() {
-        return config.excludeItemEntity;
+        return  LoadManager.isAPIFound() ?config.excludeItemEntity : false;
     }
 
     /* ------ */
 
     public static boolean isEnabledExclusionList() {
-        return config.enabledExclusionList;
+        return LoadManager.isAPIFound() ? config.enabledExclusionList : false;
     }
 
     public static List<String> getExclusionList() {

@@ -6,7 +6,6 @@ import com.kssjw.kineticminecart.util.CartImpactUtil;
 import com.kssjw.kineticminecart.util.CartKnockUtil;
 import com.kssjw.kineticminecart.util.FilterUtil;
 import com.kssjw.kineticminecart.util.SpeedUtil;
-import com.kssjw.kineticminecart.config.ValueConfig;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
@@ -29,7 +28,7 @@ public class KineticManager {
         // 若矿车速度不足则跳过,避免频繁查询实体
         if (SpeedUtil.catchedSpeed > 2) {
 
-            if (ConfigManager.getSelectedApplicaionMode() == ValueConfig.applicaionMode.Collide) {
+            if (ConfigManager.getSelectedApplicaionMode() == "Collide") {
 
                 // 检测范围
                 Box box = self.getBoundingBox();
@@ -52,7 +51,7 @@ public class KineticManager {
                 }
             }
 
-            if (ConfigManager.getSelectedApplicaionMode() == ValueConfig.applicaionMode.Radius) {
+            if (ConfigManager.getSelectedApplicaionMode() == "Radius") {
 
                 // 检测范围
                 double radius = ConfigManager.getRadius();
@@ -76,7 +75,7 @@ public class KineticManager {
     }
 
     public static int collide() {
-        if (ConfigManager.getSelectedApplicaionMode() != ValueConfig.applicaionMode.Collide) return -1;
+        if (ConfigManager.getSelectedApplicaionMode() != "Collide") return -1;
         if (SpeedUtil.catchedSpeed > 2) {
             return 0;
         } else {

@@ -10,8 +10,6 @@ public class HolderManager {
     public static ConfigHolder<ValueConfig> holder;
     
     public static void init() {
-
-        // 配置与监听器初始化
-        holder = AutoConfig.register(ValueConfig.class, GsonConfigSerializer::new);
+        holder = AutoConfig.register(ValueConfig.class, GsonConfigSerializer::new);   // 配置与监听器初始化
     }
 }
