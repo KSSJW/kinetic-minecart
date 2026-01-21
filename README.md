@@ -12,8 +12,8 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 
 ## Compatibility
 - Fabric API (Required)
-- Cloth Config API (Required)
-- Mod Menu (Recommended)
+- Cloth Config API (Recommended) (Used to support custom configuration features for mod)
+- Mod Menu (Recommended) (Used to open the mod configuration page)
 
 ## Progress
 Check out the latest development progress here. [Development Progress](https://windysky.gitbook.io/main/minecraft/kinetic-minecart/version)

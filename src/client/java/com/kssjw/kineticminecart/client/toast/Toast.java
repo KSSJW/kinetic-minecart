@@ -1,15 +1,19 @@
-package com.kssjw.kineticminecart.client.util;
+package com.kssjw.kineticminecart.client.toast;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
 import net.minecraft.client.toast.ToastManager;
 import net.minecraft.text.Text;
 
-public class ToastUtil {
+public class Toast {
 
-    private ToastUtil() {}
+    private Toast() {}
 
     public static void toast(Text title, Text description) {
+        if (FabricLoader.getInstance().getEnvironmentType() != EnvType.CLIENT) return;
+
         ToastManager toastManager = MinecraftClient.getInstance().getToastManager();
         SystemToast.show(
             toastManager,

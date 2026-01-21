@@ -49,6 +49,9 @@
     "screen.kinetic-minecart.IllegalOperationScreen.yes": "OK",
     "screen.kinetic-minecart.IllegalOperationScreen.no": "OK",
 
+    "toast.kinetic-minecart.apinotfound.title": "Cloth Config API not found",
+    "toast.kinetic-minecart.apinotfound.desc": "You need to install the §6Cloth Config API.",
+
     "toast.kinetic-minecart.ExclusionList.title": "Exclusion List",
     "toast.kinetic-minecart.ExclusionList.desc.empty": "Exclusion List is empty.",
     "toast.kinetic-minecart.ExclusionList.desc.detected": "Exclusion List content detected. ",
