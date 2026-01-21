@@ -2,7 +2,7 @@
 This mod increases damage to moving minecarts; the faster they move, the higher the damage, with virtually no damage limit!
 
 ## Loader
-[![Fabric](https://img.shields.io/badge/Available%20for-Fabric-dbd0b4)](https://fabricmc.net) [![NeoForge](https://img.shields.io/badge/Available%20for-NeoForge-e68c37)](https://neoforged.net)
+[![Fabric](https://img.shields.io/badge/Available%20for-Fabric-dbd0b4)](https://fabricmc.net) [![NeoForge](https://img.shields.io/badge/Available%20for-NeoForge-e68c37)](https://neoforged.net) [![Forge](https://img.shields.io/badge/Available%20for-Forge-2e435f)](https://files.minecraftforge.net/)
 
 ## Environment
 ![Client only](https://img.shields.io/badge/Side-Server%20and%20Client-3c8527)
@@ -11,9 +11,14 @@ This mod increases damage to moving minecarts; the faster they move, the higher 
 [![Github](https://img.shields.io/badge/Published%20in-GitHub-808284?logo=github&logoColor=white)](https://github.com/KSSJW/kinetic-minecart/releases) [![Modrinth](https://img.shields.io/badge/Published%20in-Modrinth-1bd96a?logo=modrinth&logoColor=white)](https://modrinth.com/mod/kinetic-minecart) [![CurseForge](https://img.shields.io/badge/Published%20in-CurseForge-f16436?logo=curseforge&logoColor=white)](https://www.curseforge.com/minecraft/mc-mods/kinetic-minecart)
 
 ## Compatibility
-- Fabric API (Required)
-- Cloth Config API (Recommended) (Custom configuration features)
-- Mod Menu (Recommended) (Mod configuration page)
+- ### Fabric
+  - Fabric API (Required)
+  - Cloth Config API (Recommended) (Custom configuration features)
+  - Mod Menu (Recommended) (Mod configuration page)
+- ### NeoForge
+  - Cloth Config API (Recommended) (Custom configuration features)
+- ### Forge
+  - Cloth Config API (Recommended) (Custom configuration features)
 
 ## Progress
 Check out the latest development progress here. [Development Progress](https://windysky.gitbook.io/main/minecraft/kinetic-minecart/version)
@@ -58,3 +63,4 @@ Speed <= 2			-> Damage = 0;
 
 
 - intRadius -> 3 ~ 10 (5 -> 0.5 block)
+
