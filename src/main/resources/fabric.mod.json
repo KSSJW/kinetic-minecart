@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "kinetic-minecart",
-	"version": "1.20-release.1",
+	"version": "2.1.1+1.20",
 	"name": "Kinetic Minecart",
 	"description": "Impact damage from high-speed minecarts!",
 	"authors": [
@@ -9,11 +9,20 @@
 	],
 	"contact": {
 		"homepage": "https://github.com/KSSJW/kinetic-minecart",
-		"sources": "https://github.com/KSSJW/kinetic-minecart",
-		"issues": "https://github.com/KSSJW/kinetic-minecart/issues"
+		"issues": "https://github.com/KSSJW/kinetic-minecart/issues",
+		"sources": "https://github.com/KSSJW/kinetic-minecart"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.modrinth": "https://modrinth.com/mod/kinetic-minecart",
+				"modmenu.discord": "https://discord.gg/Ms9P9YsZXt",
+				"modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/kinetic-minecart"
+			}
+		}
 	},
 	"license": "GPL-3.0",
-	"icon": "assets/kinetic-minecart/icon.png",
+	"icon": "assets/kinetic-minecart/logo/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -21,6 +30,9 @@
 		],
 		"client": [
 			"com.kssjw.kineticminecart.client.KineticMinecartClient"
+		],
+		"modmenu": [
+			"com.kssjw.kineticminecart.client.menu.ConfigMenu"
 		]
 	},
 	"mixins": [
@@ -32,11 +44,12 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",
-		"minecraft": ">=1.20 <=1.20.4",
+		"minecraft": ">=1.20 <=1.20.1",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"cloth-config": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"modmenu": "*"
 	}
 }
