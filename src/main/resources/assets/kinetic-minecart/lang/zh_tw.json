@@ -1,0 +1,56 @@
+{
+    "text.autoconfig.kinetic-minecart.title": "Kinetic Minecart 設定",
+
+    "text.autoconfig.kinetic-minecart.category.general": "一般設定",
+    "text.autoconfig.kinetic-minecart.category.types": "類型設定",
+    "text.autoconfig.kinetic-minecart.category.advanced": "進階設定",
+
+    "text.autoconfig.kinetic-minecart.option.enabled": "啟用模組",
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "應用模式",
+    "option.kinetic-minecart.radius": "半徑",
+    "option.kinetic-minecart.collide": "碰撞",
+    "text.autoconfig.kinetic-minecart.option.intRadius": "半徑",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[0]": "僅在應用模式設定為半徑時生效",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[1]": "\n",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[2]": "註：數值會被轉換為小數",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[3]": "例：5 -> 0.5 方塊",
+    "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[4]": "",
+    "text.autoconfig.kinetic-minecart.option.enabledImpact": "啟用撞擊傷害",
+    "text.autoconfig.kinetic-minecart.option.enabledKnock": "啟用擊退",
+
+    "text.autoconfig.kinetic-minecart.option.excludePlayer": "排除玩家",
+
+    "text.autoconfig.kinetic-minecart.option.excludePet": "排除寵物",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[0]": "排除已馴服或有主人的",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[1]": "狗、馬等等。",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[2]": "\n",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[3]": "§6註: §f有些特殊生物",
+    "text.autoconfig.kinetic-minecart.option.excludePet.@Tooltip[4]": "不能被排除！",
+
+    "text.autoconfig.kinetic-minecart.option.excludePassenger": "排除乘客",
+    "text.autoconfig.kinetic-minecart.option.excludeNamedEntity": "排除已命名的實體",
+    "text.autoconfig.kinetic-minecart.option.excludeItemEntity": "排除掉落物實體",
+
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList": "啟用排除清單",
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList.@Tooltip[0]": "啟用後，您可以自訂要排除哪些實體",
+    "text.autoconfig.kinetic-minecart.option.enabledExclusionList.@Tooltip[1]": "",
+
+    "text.autoconfig.kinetic-minecart.option.exclusionList": "排除清單",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[0]": "§6註: §f您需要自行查閱實體的 ID，",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[1]": "必須包含§6命名空間。",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[2]": "模組有自動補全命名空間的功能，",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[3]": "但可能會出錯。",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[4]": "\n",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[5]": "例如：§aminecraft:creeper",
+    "text.autoconfig.kinetic-minecart.option.exclusionList.@Tooltip[6]": "",
+
+    "screen.kinetic-minecart.IllegalOperationScreen.title": "§c不允許的操作",
+    "screen.kinetic-minecart.IllegalOperationScreen.desc": ":( 不要灰心，這不是 Bug。\n\n看起來您正在進行多人遊戲。\n您不能透過此設定更改伺服器的配置。\n\n如需更改，請聯絡伺服器管理員修改配置檔案。\n§6... > config > kinetic-minecart.json",
+    "screen.kinetic-minecart.IllegalOperationScreen.yes": "確定",
+    "screen.kinetic-minecart.IllegalOperationScreen.no": "確定",
+
+    "toast.kinetic-minecart.ExclusionList.title": "排除清單",
+    "toast.kinetic-minecart.ExclusionList.desc.empty": "排除清單為空。",
+    "toast.kinetic-minecart.ExclusionList.desc.detected": "偵測到排除清單內容。",
+    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§c錯誤: §f未知的 "
+}
