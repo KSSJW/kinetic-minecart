@@ -3,20 +3,33 @@
 
     "text.autoconfig.kinetic-minecart.category.general": "General Settings",
     "text.autoconfig.kinetic-minecart.category.types": "Types Settings",
+    "text.autoconfig.kinetic-minecart.category.display": "Display Settings",
     "text.autoconfig.kinetic-minecart.category.advanced": "Advanced Settings",
 
-    "text.autoconfig.kinetic-minecart.option.enabled": "Enable Mod",
-    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "Application Mode",
+    "text.autoconfig.kinetic-minecart.option.enabled.@PrefixText": "Main Switch",
+    "text.autoconfig.kinetic-minecart.option.enabled": "    Enable Mod",
+
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode.@PrefixText": "Application",
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "    Application Mode",
     "option.kinetic-minecart.radius": "Radius",
     "option.kinetic-minecart.collide": "Collide",
-    "text.autoconfig.kinetic-minecart.option.intRadius": "Radius",
+    "text.autoconfig.kinetic-minecart.option.intRadius": "    Radius",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[0]": "This only takes effect",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[1]": "when the Application Mode is set to Radius.",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[2]": "\n",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[3]": "Note: The value will be converted to a decimal.",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[4]": "Example: 5 -> 0.5 bock",
-    "text.autoconfig.kinetic-minecart.option.enabledImpact": "Enable Impact Damage",
-    "text.autoconfig.kinetic-minecart.option.enabledKnock": "Enable Knockback",
+
+    "text.autoconfig.kinetic-minecart.option.enabledDamage.@PrefixText": "Damage",
+    "text.autoconfig.kinetic-minecart.option.enabledDamage": "    Enable Damage",
+    "text.autoconfig.kinetic-minecart.option.selectedDamageMode": "    Damage Mode",
+    "option.kinetic-minecart.tiereddamage": "Tiered Damage",
+    "option.kinetic-minecart.directlykill": "Directly Kill",
+
+    "text.autoconfig.kinetic-minecart.option.enabledKnock.@PrefixText": "Knockback",
+    "text.autoconfig.kinetic-minecart.option.enabledKnock": "    Enable Knockback",
+
+    "text.autoconfig.kinetic-minecart.option.enabledHUDSpeed": "Enable HUD speed display",    
 
     "text.autoconfig.kinetic-minecart.option.excludePlayer": "Exclude Player",
 
@@ -55,5 +68,8 @@
     "toast.kinetic-minecart.ExclusionList.title": "Exclusion List",
     "toast.kinetic-minecart.ExclusionList.desc.empty": "Exclusion List is empty.",
     "toast.kinetic-minecart.ExclusionList.desc.detected": "Exclusion List content detected. ",
-    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§cError: §fUnknown ID in "
+    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§cError: §fUnknown ID in ",
+
+    "message.kinetic-minecart.speed.head": "Speed: ",
+    "message.kinetic-minecart.speed.tail": " Block(s)/s"
 }

@@ -7,7 +7,7 @@ public class SpeedUtil {
 
     private SpeedUtil() {}
 
-    private static double MIN_SPEED_THRESHOLD = 0.2; // 最低速度阈值（平方和阈值会用 lengthSqr 比较）
+    private static double MIN_SPEED_THRESHOLD = 0.001; // 最低速度阈值
 
     public static float getSpeed(AbstractMinecartEntity minecart) {
         double speedSqr = minecart.getVelocity().lengthSquared();

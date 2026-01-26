@@ -22,15 +22,33 @@ public class ValueConfig implements ConfigData {
         public String toString() {
             return Text.translatable(key).getString();
         }
-        
     }
+
+    public static enum damageMode {
+        TieredDamage("option.kinetic-minecart.tiereddamage"),
+        DirectlyKill("option.kinetic-minecart.directlykill");
+
+        private final String key;
+        damageMode(String key) { this.key = key;}
+
+        @Override
+        public String toString() {
+            return Text.translatable(key).getString();
+        }
+    }
+
+    /* */
 
     // 启用开关
     @ConfigEntry.Category("general")
+    @ConfigEntry.Gui.PrefixText
     public boolean enabled = true;
+
+    /* */
 
     // 应用模式
     @ConfigEntry.Category("general")
+    @ConfigEntry.Gui.PrefixText
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     public applicaionMode selectedApplicaionMode = applicaionMode.Collide;
 
@@ -39,14 +57,31 @@ public class ValueConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip(count = 5)
     @ConfigEntry.BoundedDiscrete(min = 3, max = 10)
     public int intRadius = 5;
-    
+
+    /* */
+
     // 启用伤害
     @ConfigEntry.Category("general")
-    public boolean enabledImpact = true;
+    @ConfigEntry.Gui.PrefixText
+    public boolean enabledDamage = true;
+
+    // 伤害模式
+    @ConfigEntry.Category("general")
+    @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
+    public damageMode selectedDamageMode = damageMode.TieredDamage;
+
+    /* */
 
     // 启用击退
     @ConfigEntry.Category("general")
+    @ConfigEntry.Gui.PrefixText
     public boolean enabledKnock = true;
+
+    /* ------ */
+
+    // HUD速度显示
+    @ConfigEntry.Category("display")
+    public boolean enabledHUDSpeed = true;
 
     /* ------ */
 

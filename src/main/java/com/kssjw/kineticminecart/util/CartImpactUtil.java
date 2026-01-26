@@ -3,10 +3,7 @@ package com.kssjw.kineticminecart.util;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.kssjw.kineticminecart.manager.KineticManager;
-
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
@@ -16,11 +13,8 @@ public class CartImpactUtil {
 
     private static final Map<Integer, Long> lastHitTicks = new ConcurrentHashMap<>();   // lastHitTicks 存储 entityId -> lastHitGameTime（server tick time）
 
-    public static void tryApplyImpact(AbstractMinecartEntity minecart, Entity target) {
-
-        if (minecart == null || target == null) return;
-
-        World world = minecart.getEntityWorld();
+    public static void tryApplyTieredDamage(Entity target, float speed) {
+        World world = target.getEntityWorld();
                
         // 冷却检查
         long now = world.getTime();
@@ -31,15 +25,19 @@ public class CartImpactUtil {
 
         float damage;
 
-        if (target.hasVehicle()) damage = (float)KineticManager.speed;    // 目标为乘客时计算伤害（模拟载具抵挡了部分伤害）
+        if (target.hasVehicle()) damage = (float)speed;    // 目标为乘客时计算伤害（模拟载具抵挡了部分伤害）
 
         // 正常情况计算伤害
-        if (KineticManager.speed >= 6) {
-            damage = (float)Math.pow(KineticManager.speed, 3);
-        } else if (KineticManager.speed < 6 && KineticManager.speed > 2) {
-            damage = (float)Math.pow(KineticManager.speed, 2);
+        if (speed >= 6) {
+            damage = (float)Math.pow(speed, 3);
+        } else if (speed < 6 && speed > 2) {
+            damage = (float)Math.pow(speed, 2);
         } else return;
 
         target.damage((ServerWorld)world, world.getDamageSources().generic(), damage);  // 处刑
+    }
+
+    public static void tryKill(Entity target, float speed) {
+        if (speed > 2) target.kill((ServerWorld)target.getEntityWorld());
     }
 }

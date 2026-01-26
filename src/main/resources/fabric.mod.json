@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "kinetic-minecart",
-	"version": "2.3.0-alpha.1+1.21.11",
+	"version": "2.3.0-alpha.2+1.21.11",
 	"name": "Kinetic Minecart",
 	"description": "Impact damage from high-speed minecarts!",
 	"authors": [
