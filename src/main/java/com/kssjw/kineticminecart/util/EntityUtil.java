@@ -21,14 +21,12 @@ public final class EntityUtil {
     public static void knockBack(Entity entity, Vec3d direction, double strength) {
         if (entity == null) return;
 
-        // 计算附加速度（direction 乘以强度）
-        Vec3d add = direction.multiply(strength);
+        Vec3d add = direction.multiply(strength);   // 计算附加速度（direction 乘以强度）
 
         // 获取当前速度并累加
         Vec3d current = entity.getVelocity();
         Vec3d next = current.add(add);
 
-        // 应用新的速度
-        entity.setVelocity(next);
+        entity.setVelocity(next);   // 应用新的速度
     }
 }

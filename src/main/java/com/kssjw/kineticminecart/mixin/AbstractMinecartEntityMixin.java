@@ -12,16 +12,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 
 @Mixin(AbstractMinecartEntity.class)
-public abstract class AbstractMinecartMixin {
+public class AbstractMinecartEntityMixin {
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
-        AbstractMinecartEntity self = (AbstractMinecartEntity) (Object) this;
+        AbstractMinecartEntity self = (AbstractMinecartEntity)(Object)this;
         KineticManager.handler(self);
     }
 
     @Inject(method = "collidesWith", at = @At("HEAD"), cancellable = true)
-    public void onCollidesWith(Entity other, CallbackInfoReturnable<Boolean> cir) {
+    private void onCollidesWith(Entity other, CallbackInfoReturnable<Boolean> cir) {
         switch (KineticManager.collide()) {
             case -1:
                 return;

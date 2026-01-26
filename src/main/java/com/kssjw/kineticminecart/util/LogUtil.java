@@ -6,12 +6,10 @@ public class LogUtil {
     private LogUtil() {}
     
     private static final String HEAD = "[Kinetic Minecart] ";    // 最后有一个空格
+    private static float tempLoggerSpeed;   // 缓存数据
 
-    // 缓存数据
-    private static float tempLoggerSpeed;
-
-    public static void print(String str) {
-        System.out.println(HEAD + str);
+    public static void print(Object object) {
+        System.out.println(HEAD + String.valueOf(object));
     }
 
     public static void printSpeed(float loggerSpeed) {

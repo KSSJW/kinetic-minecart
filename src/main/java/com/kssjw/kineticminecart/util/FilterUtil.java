@@ -7,6 +7,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 import net.minecraft.registry.Registries;
 
 public class FilterUtil {
@@ -30,31 +31,46 @@ public class FilterUtil {
             }
         }
 
-        return false;   // 默认不排除
+        return false;
     }
 
     // 排除列表
     private static boolean isInExclusionList(Entity entity) {
+        
+        String id = Registries.ENTITY_TYPE.getId(entity.getType()).toString();  // 获取实体的注册名
 
-        // 获取实体的注册名
-        String id = Registries.ENTITY_TYPE.getId(entity.getType()).toString();
-
-        if (ConfigManager.getExclusionList().contains(id) == true) {
+        if (ConfigManager.getExclusionList().contains(id)) {
             return true;
         } else return false;
     }
 
-    // 主方法，判断是否被排除
-    public static boolean isEntityExcluded(Entity entity) {
-        if (
-            ConfigManager.isExcludePlayer() == true && entity instanceof PlayerEntity
-            || ConfigManager.isExcluePet() == true && isPet(entity) == true
-            || ConfigManager.isExcludePassenger() == true && entity.hasVehicle() == true
-            || ConfigManager.isExcludeNamedEntity() == true && entity.hasCustomName() == true
-            || ConfigManager.isExcludItemEntity() == true && entity instanceof ItemEntity
-            || ConfigManager.isEnabledExclusionList() == true && isInExclusionList(entity) == true
+
+    // 默认排除
+    private static boolean isInDefaultExclusion(AbstractMinecartEntity minecart, Entity entity) {
+        if (entity instanceof AbstractMinecartEntity    // 避免矿车被"撞死"，哈哈哈矿车也是生物(
+            || entity.getVehicle() == minecart  // 避免被自己坐的矿车干掉
         ) {
             return true;
-        } else return false;    // 默认不排除
+        } else {
+            return false;
+        }
+    }
+
+    // 判断是否被用户排除
+    private static boolean isInCustomExclusion(Entity entity) {
+        if (ConfigManager.isExcludePlayer() && entity instanceof PlayerEntity
+            || ConfigManager.isExcluePet() && isPet(entity)
+            || ConfigManager.isExcludePassenger() && entity.hasVehicle()
+            || ConfigManager.isExcludeNamedEntity() && entity.hasCustomName()
+            || ConfigManager.isExcludItemEntity() && entity instanceof ItemEntity
+            || ConfigManager.isEnabledExclusionList() && isInExclusionList(entity)
+        ) {
+            return true;
+        } else return false;
+    }
+
+    // 总方法
+    public static boolean isExclued(AbstractMinecartEntity minecart, Entity entity) {
+        return isInDefaultExclusion(minecart, entity) || isInCustomExclusion(entity) ? true : false;
     }
 }

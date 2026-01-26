@@ -15,8 +15,7 @@ import net.minecraft.util.ActionResult;
 
 public class ClientHolder {
 
-    // 从服务端获取 holder
-    public static ConfigHolder<ValueConfig> holder = HolderManager.holder;
+    public static ConfigHolder<ValueConfig> holder = HolderManager.holder;  // 从服务端获取 holder
 
     public static void init() {
 
