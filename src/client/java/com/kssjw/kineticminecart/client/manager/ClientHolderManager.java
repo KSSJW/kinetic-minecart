@@ -8,8 +8,8 @@ import com.kssjw.kineticminecart.manager.HolderManager;
 import com.kssjw.kineticminecart.util.ExclusionListUtil;
 import com.kssjw.kineticminecart.util.LogUtil;
 
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionResult;
 
 public class ClientHolderManager {
 
@@ -26,12 +26,12 @@ public class ClientHolderManager {
                     .collect(Collectors.toList());
 
                 // 显示提示
-                Text title = Text.translatable("toast.kinetic-minecart.ExclusionList.title");
-                Text desc = ExclusionListUtil.buildMessage(ConfigManager.getExclusionList());
+                Component title = Component.translatable("toast.kinetic-minecart.ExclusionList.title");
+                Component desc = ExclusionListUtil.buildMessage(ConfigManager.getExclusionList());
                 ToastUtil.toast(title, desc);
             }
             LogUtil.print("The configuration has been saved.");
-            return ActionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         });
     }
 }

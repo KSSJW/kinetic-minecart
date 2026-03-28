@@ -1,7 +1,7 @@
 {
 	"required": false,
 	"package": "com.kssjw.kineticminecart.client.mixin",
-	"compatibilityLevel": "JAVA_21",
+	"compatibilityLevel": "JAVA_25",
 	"client": [
 	],
 	"injectors": {

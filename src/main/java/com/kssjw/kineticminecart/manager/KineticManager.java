@@ -1,37 +1,35 @@
 package com.kssjw.kineticminecart.manager;
 
 import java.util.List;
-
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import com.kssjw.kineticminecart.util.CartImpactUtil;
 import com.kssjw.kineticminecart.util.CartKnockUtil;
 import com.kssjw.kineticminecart.util.DelayUtil;
 import com.kssjw.kineticminecart.util.FilterUtil;
 import com.kssjw.kineticminecart.util.SpeedUtil;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.vehicle.AbstractMinecartEntity;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
-
 public class KineticManager {
 
     private static void damage(Entity target, float speed) {
-        if (target == null || target.getEntityWorld().isClient()) return;
+        if (target == null || target.level().isClientSide()) return;
 
         if (ConfigManager.getSelectedDamageMode() == "TieredDamage") CartImpactUtil.tryApplyTieredDamage(target, speed);
         if (ConfigManager.getSelectedDamageMode() == "DirectlyKill") CartImpactUtil.tryKill(target, speed);
     }
     
-    public static void handler(AbstractMinecartEntity self) {
+    public static void handler(AbstractMinecart self) {
         if (self == null) return;
 
-        World world = self.getEntityWorld();
+        Level world = self.level();
         float speed = SpeedUtil.getSpeed(self);
-        Vec3d mv = SpeedUtil.getVelocity(self);
+        Vec3 mv = SpeedUtil.getVelocity(self);
 
         if (world == null
-            || world.isClient() // 仅服务端处理
+            || world.isClientSide() // 仅服务端处理
             || !ConfigManager.isEnabled()   // 开关拦截
         ) return;
 
@@ -41,7 +39,7 @@ public class KineticManager {
             if (ConfigManager.getSelectedApplicaionMode() == "Collide") {
 
                 // 获取附近实体并过滤一些不需要的类型：自身、已死、被排除、不在碰撞箱内
-                List<Entity> list = world.getOtherEntities(
+                List<Entity> list = world.getEntities(
                     self,
                     self.getBoundingBox(),
                     e -> (
@@ -61,10 +59,10 @@ public class KineticManager {
             }
 
             if (ConfigManager.getSelectedApplicaionMode() == "Radius") {
-                Box box = self.getBoundingBox().expand(ConfigManager.getRadius());  // 检测范围
+                AABB box = self.getBoundingBox().inflate(ConfigManager.getRadius());  // 检测范围
 
                 // 获取附近实体并过滤一些不需要的类型：自身、已死、被排除
-                List<Entity> list = world.getOtherEntities(
+                List<Entity> list = world.getEntities(
                     self,
                     box,
                     e -> (
@@ -87,11 +85,11 @@ public class KineticManager {
         SpeedUtil.setVelocity(self, mv);    // 恢复矿车原始速度
     }
 
-    public static int getCollideStatus(AbstractMinecartEntity minecart, Entity target) {
+    public static int getCollideStatus(AbstractMinecart minecart, Entity target) {
         if (!ConfigManager.isEnabled()
             || ConfigManager.getSelectedApplicaionMode() != "Collide"
             || minecart == null
-            || target instanceof AbstractMinecartEntity
+            || target instanceof AbstractMinecart
         ) return -1;
         
         if (SpeedUtil.getSpeed(minecart) > 2) {

@@ -6,25 +6,24 @@ import com.kssjw.kineticminecart.client.util.ToastUtil;
 import com.kssjw.kineticminecart.extension.config.ConfigValue;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.Text;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 
 public class ConfigEntry implements ModMenuApi {
     
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return parent -> {
-            MinecraftClient mc = MinecraftClient.getInstance();
+            Minecraft mc = Minecraft.getInstance();
 
-            boolean inWorld = mc.world != null && mc.player != null;
-            boolean isMultiplayerWorld = inWorld && mc.getCurrentServerEntry() != null;
+            boolean inWorld = mc.level != null && mc.player != null;
+            boolean isMultiplayerWorld = inWorld && mc.getCurrentServer() != null;
             
             if (isMultiplayerWorld) return IllegalOperationScreenUtil.get(parent);  // 多人模式拦截
 
             if (!ClientLoadManager.isClientAPIFound()) {
-                Text title = Text.translatable("toast.kinetic-minecart.apinotfound.title");
-                Text desc = Text.translatable("toast.kinetic-minecart.apinotfound.desc");
+                Component title = Component.translatable("toast.kinetic-minecart.apinotfound.title");
+                Component desc = Component.translatable("toast.kinetic-minecart.apinotfound.desc");
                 ToastUtil.toast(title, desc);
                 return null;
             } else {

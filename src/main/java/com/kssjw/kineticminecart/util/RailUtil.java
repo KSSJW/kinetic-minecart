@@ -1,21 +1,21 @@
 package com.kssjw.kineticminecart.util;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.RailBlock;
-import net.minecraft.block.enums.RailShape;
-import net.minecraft.entity.vehicle.AbstractMinecartEntity;
-import net.minecraft.state.property.Properties;
+import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
+import net.minecraft.world.level.block.RailBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.RailShape;
 
 public class RailUtil {
 
     private RailUtil() {}
 
-    public static boolean isCurved(AbstractMinecartEntity minecart) {
-        BlockState state = minecart.getEntityWorld().getBlockState(minecart.getBlockPos());
+    public static boolean isCurved(AbstractMinecart minecart) {
+        BlockState state = minecart.level().getBlockState(minecart.blockPosition());
         
         if (state.getBlock() instanceof RailBlock) {
 
-            RailShape shape = state.get(Properties.RAIL_SHAPE);
+            RailShape shape = state.getValue(BlockStateProperties.RAIL_SHAPE);
             if (shape == RailShape.NORTH_EAST
             || shape == RailShape.NORTH_WEST
             || shape == RailShape.SOUTH_EAST
