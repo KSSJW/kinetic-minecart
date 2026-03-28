@@ -1,4 +1,4 @@
-package com.kssjw.kineticminecart.client.toast;
+package com.kssjw.kineticminecart.client.util;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -7,9 +7,9 @@ import net.minecraft.client.toast.SystemToast;
 import net.minecraft.client.toast.ToastManager;
 import net.minecraft.text.Text;
 
-public class Toast {
+public class ToastUtil {
 
-    private Toast() {}
+    private ToastUtil() {}
 
     public static void toast(Text title, Text description) {
         if (FabricLoader.getInstance().getEnvironmentType() != EnvType.CLIENT) return;
@@ -23,5 +23,3 @@ public class Toast {
         );
     }
 }
-
-    

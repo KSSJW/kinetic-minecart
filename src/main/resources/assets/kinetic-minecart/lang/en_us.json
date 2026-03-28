@@ -29,8 +29,6 @@
     "text.autoconfig.kinetic-minecart.option.enabledKnock.@PrefixText": "Knockback",
     "text.autoconfig.kinetic-minecart.option.enabledKnock": "    Enable Knockback",
 
-    "text.autoconfig.kinetic-minecart.option.enabledHUDSpeed": "Enable HUD speed display",    
-
     "text.autoconfig.kinetic-minecart.option.excludePlayer": "Exclude Player",
 
     "text.autoconfig.kinetic-minecart.option.excludePet": "Exclude Pet",
@@ -68,8 +66,5 @@
     "toast.kinetic-minecart.ExclusionList.title": "Exclusion List",
     "toast.kinetic-minecart.ExclusionList.desc.empty": "Exclusion List is empty.",
     "toast.kinetic-minecart.ExclusionList.desc.detected": "Exclusion List content detected. ",
-    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§cError: §fUnknown ID in ",
-
-    "message.kinetic-minecart.speed.head": "Speed: ",
-    "message.kinetic-minecart.speed.tail": " Block(s)/s"
+    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§cError: §fUnknown ID in "
 }

@@ -1,22 +1,33 @@
 {
-    "text.autoconfig.kinetic-minecart.title": "動能礦車設",
-    
+    "text.autoconfig.kinetic-minecart.title": "動能礦車設定",
+
     "text.autoconfig.kinetic-minecart.category.general": "凡用之設",
     "text.autoconfig.kinetic-minecart.category.types": "類別之設",
+    "text.autoconfig.kinetic-minecart.category.display": "顯示之設",
     "text.autoconfig.kinetic-minecart.category.advanced": "進階之設",
 
-    "text.autoconfig.kinetic-minecart.option.enabled": "啟用此模",
-    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "施用之式",
+    "text.autoconfig.kinetic-minecart.option.enabled.@PrefixText": "主開關",
+    "text.autoconfig.kinetic-minecart.option.enabled": "    啟用此模",
+
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode.@PrefixText": "施用",
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "    施用之式",
     "option.kinetic-minecart.radius": "半徑",
     "option.kinetic-minecart.collide": "相觸",
-    "text.autoconfig.kinetic-minecart.option.intRadius": "半徑",
+    "text.autoconfig.kinetic-minecart.option.intRadius": "    半徑",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[0]": "唯於施用之式為半徑時乃效",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[1]": "\n",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[2]": "注：數值化為小數",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[3]": "例：五 -> 〇點五方塊",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[4]": "",
-    "text.autoconfig.kinetic-minecart.option.enabledImpact": "啟用衝擊傷",
-    "text.autoconfig.kinetic-minecart.option.enabledKnock": "啟用擊退",
+
+    "text.autoconfig.kinetic-minecart.option.enabledDamage.@PrefixText": "傷害",
+    "text.autoconfig.kinetic-minecart.option.enabledDamage": "    啟用傷害",
+    "text.autoconfig.kinetic-minecart.option.selectedDamageMode": "    傷害之式",
+    "option.kinetic-minecart.tiereddamage": "分級之傷",
+    "option.kinetic-minecart.directlykill": "直殺",
+
+    "text.autoconfig.kinetic-minecart.option.enabledKnock.@PrefixText": "擊退",
+    "text.autoconfig.kinetic-minecart.option.enabledKnock": "    啟用擊退",
 
     "text.autoconfig.kinetic-minecart.option.excludePlayer": "不及於人",
 
@@ -55,5 +66,5 @@
     "toast.kinetic-minecart.ExclusionList.title": "排除錄",
     "toast.kinetic-minecart.ExclusionList.desc.empty": "排除錄空。",
     "toast.kinetic-minecart.ExclusionList.desc.detected": "已覺排除錄之文。",
-    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§c謬: §f未知之 "
+    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§c謬: §f未知之 ID "
 }

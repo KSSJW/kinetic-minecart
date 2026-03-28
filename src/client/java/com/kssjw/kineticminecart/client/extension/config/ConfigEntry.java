@@ -1,17 +1,16 @@
-package com.kssjw.kineticminecart.client.menu;
+package com.kssjw.kineticminecart.client.extension.config;
 
-import com.kssjw.kineticminecart.client.load.ClientLoad;
-import com.kssjw.kineticminecart.client.screen.IllegalOperationScreen;
-import com.kssjw.kineticminecart.client.toast.Toast;
-import com.kssjw.kineticminecart.config.ValueConfig;
+import com.kssjw.kineticminecart.client.manager.ClientLoadManager;
+import com.kssjw.kineticminecart.client.util.IllegalOperationScreenUtil;
+import com.kssjw.kineticminecart.client.util.ToastUtil;
+import com.kssjw.kineticminecart.extension.config.ConfigValue;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ConfirmScreen;
 import net.minecraft.text.Text;
 
-public class ConfigMenu implements ModMenuApi {
+public class ConfigEntry implements ModMenuApi {
     
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
@@ -21,19 +20,15 @@ public class ConfigMenu implements ModMenuApi {
             boolean inWorld = mc.world != null && mc.player != null;
             boolean isMultiplayerWorld = inWorld && mc.getCurrentServerEntry() != null;
             
-            // 多人模式拦截
-            if (isMultiplayerWorld) {
-                ConfirmScreen confirmScreen = IllegalOperationScreen.get(parent);
-                return confirmScreen;
-            }
+            if (isMultiplayerWorld) return IllegalOperationScreenUtil.get(parent);  // 多人模式拦截
 
-            if (!ClientLoad.isClientAPIFound()) {
+            if (!ClientLoadManager.isClientAPIFound()) {
                 Text title = Text.translatable("toast.kinetic-minecart.apinotfound.title");
                 Text desc = Text.translatable("toast.kinetic-minecart.apinotfound.desc");
-                Toast.toast(title, desc);
+                ToastUtil.toast(title, desc);
                 return null;
             } else {
-                return me.shedaniel.autoconfig.AutoConfigClient.getConfigScreen(ValueConfig.class, parent).get();
+                return me.shedaniel.autoconfig.AutoConfigClient.getConfigScreen(ConfigValue.class, parent).get();
             }
         };
     }

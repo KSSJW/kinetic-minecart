@@ -18,7 +18,6 @@ public class AbstractMinecartEntityMixin {
     private void onTick(CallbackInfo ci) {
         AbstractMinecartEntity self = (AbstractMinecartEntity)(Object)this;
         KineticManager.handler(self);
-        KineticManager.sendSpeedToClient(self);
     }
 
     @Inject(method = "collidesWith", at = @At("HEAD"), cancellable = true)

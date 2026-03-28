@@ -2,11 +2,11 @@ package com.kssjw.kineticminecart.manager;
 
 import java.util.List;
 
-import com.kssjw.kineticminecart.config.ValueConfig;
+import com.kssjw.kineticminecart.extension.config.ConfigValue;
 
 public class ConfigManager {
     
-    public static ValueConfig config = LoadManager.isAPIFound() ? me.shedaniel.autoconfig.AutoConfig.getConfigHolder(ValueConfig.class).getConfig() : null;
+    public static ConfigValue config = LoadManager.isAPIFound() ? me.shedaniel.autoconfig.AutoConfig.getConfigHolder(ConfigValue.class).getConfig() : null;
 
     /* */
 
@@ -19,10 +19,10 @@ public class ConfigManager {
     public static String getSelectedApplicaionMode() {
         if (LoadManager.isAPIFound()) {
             switch (config.selectedApplicaionMode) {
-                case ValueConfig.applicaionMode.Collide:
+                case ConfigValue.applicaionMode.Collide:
                     return "Collide";
             
-                case ValueConfig.applicaionMode.Radius:
+                case ConfigValue.applicaionMode.Radius:
                     return "Radius";
 
                 default:
@@ -46,10 +46,10 @@ public class ConfigManager {
     public static String getSelectedDamageMode() {
         if (LoadManager.isAPIFound()) {
             switch (config.selectedDamageMode) {
-                case ValueConfig.damageMode.TieredDamage:
+                case ConfigValue.damageMode.TieredDamage:
                     return "TieredDamage";
             
-                case ValueConfig.damageMode.DirectlyKill:
+                case ConfigValue.damageMode.DirectlyKill:
                     return "DirectlyKill";
 
                 default:
@@ -64,12 +64,6 @@ public class ConfigManager {
 
     public static boolean isEnabledKnock() {
         return LoadManager.isAPIFound() ? config.enabledKnock : true;
-    }
-
-    /* ------ */
-
-    public static boolean isEnabledHUDSpeed() {
-        return LoadManager.isAPIFound() ? config.enabledHUDSpeed : true;
     }
 
     /* ------ */

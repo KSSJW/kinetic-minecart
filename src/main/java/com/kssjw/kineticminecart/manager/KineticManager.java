@@ -9,9 +9,7 @@ import com.kssjw.kineticminecart.util.FilterUtil;
 import com.kssjw.kineticminecart.util.SpeedUtil;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -42,13 +40,19 @@ public class KineticManager {
 
             if (ConfigManager.getSelectedApplicaionMode() == "Collide") {
 
-                // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
-                List<Entity> list = world.getOtherEntities(self, self.getBoundingBox(), e -> e != self && e.isAlive());
-                if (list.isEmpty()) return;
+                // 获取附近实体并过滤一些不需要的类型：自身、已死、被排除、不在碰撞箱内
+                List<Entity> list = world.getOtherEntities(
+                    self,
+                    self.getBoundingBox(),
+                    e -> (
+                        e != self
+                        && e.isAlive()
+                        && !FilterUtil.isExclued(self, e)
+                        && self.getBoundingBox().intersects(e.getBoundingBox())
+                    )
+                );
 
                 for (Entity target : list) {
-
-                    if (FilterUtil.isExclued(self, target) || !self.getBoundingBox().intersects(target.getBoundingBox())) continue; // 排除工具、未在碰撞箱内
 
                     // 对每个目标调用方法
                     if (ConfigManager.isEnabledKnock()) CartKnockUtil.tryApplyKnock(self, target, mv, speed);
@@ -59,13 +63,19 @@ public class KineticManager {
             if (ConfigManager.getSelectedApplicaionMode() == "Radius") {
                 Box box = self.getBoundingBox().expand(ConfigManager.getRadius());  // 检测范围
 
-                // 获取附近实体并过滤一些不需要的类型（自身、已死、不可交互等）
-                List<Entity> list = world.getOtherEntities(self, box, e -> e != self && e.isAlive());
-                if (list.isEmpty()) return;
+                // 获取附近实体并过滤一些不需要的类型：自身、已死、被排除
+                List<Entity> list = world.getOtherEntities(
+                    self,
+                    box,
+                    e -> (
+                        e != self
+                        && e.isAlive()
+                        && e.getVehicle() != self
+                        && !FilterUtil.isExclued(self, e)
+                    )
+                );
 
                 for (Entity target : list) {
-
-                    if (FilterUtil.isExclued(self, target)) continue;   // 排除工具
 
                     // 对每个目标调用方法
                     if (ConfigManager.isEnabledKnock()) CartKnockUtil.tryApplyKnock(self, target, mv, speed);
@@ -80,6 +90,7 @@ public class KineticManager {
     public static int getCollideStatus(AbstractMinecartEntity minecart, Entity target) {
         if (!ConfigManager.isEnabled()
             || ConfigManager.getSelectedApplicaionMode() != "Collide"
+            || minecart == null
             || target instanceof AbstractMinecartEntity
         ) return -1;
         
@@ -87,25 +98,6 @@ public class KineticManager {
             return 0;
         } else {
             return -1;
-        }
-    }
-
-    public static void sendSpeedToClient(AbstractMinecartEntity minecart) {
-        if (!ConfigManager.isEnabled()
-            || !ConfigManager.isEnabledHUDSpeed()
-            || minecart.getEntityWorld().isClient()
-        ) return;
-
-        List<Entity> list = minecart.getPassengerList();
-        for (Entity e : list) {
-            if (e instanceof PlayerEntity player) {
-                player.sendMessage(
-                    Text.translatable("message.kinetic-minecart.speed.head")
-                        .append(String.format("%.2f", (double)SpeedUtil.getSpeed(minecart)))
-                        .append(Text.translatable("message.kinetic-minecart.speed.tail")),
-                    true
-                );
-            }
         }
     }
 }

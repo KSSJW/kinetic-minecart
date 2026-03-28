@@ -1,11 +1,11 @@
-package com.kssjw.kineticminecart.client.screen;
+package com.kssjw.kineticminecart.client.util;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ConfirmScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
-public class IllegalOperationScreen {
+public class IllegalOperationScreenUtil {
 
     // 拦截提示界面
     public static ConfirmScreen get(Screen parent) {

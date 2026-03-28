@@ -14,7 +14,13 @@ public class SpeedUtil {
 
         if (speedSqr < Math.pow(MIN_SPEED_THRESHOLD, 2.0)) return 0;    // 速度阈值判断（使用平方以避免开方）
 
-        return (float)Math.sqrt(speedSqr) * 4;  // 速度转换（每秒）
+        float speed = (float)Math.sqrt(speedSqr) * 4;   // 速度转换（每秒）
+
+        if (RailUtil.isCurved(minecart)) {
+            return speed *= Math.sqrt(2.0); // 修正为斜角速度
+        } else {
+            return speed;
+        }
     }
 
     public static Vec3d getVelocity(AbstractMinecartEntity minecart) {

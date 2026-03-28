@@ -1,4 +1,4 @@
-package com.kssjw.kineticminecart.config;
+package com.kssjw.kineticminecart.extension.config;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import net.minecraft.text.Text;
 
 @Config(name = "kinetic-minecart")
-public class ValueConfig implements ConfigData {
+public class ConfigValue implements ConfigData {
 
     public static enum applicaionMode {
         Radius("option.kinetic-minecart.radius"),
@@ -76,12 +76,6 @@ public class ValueConfig implements ConfigData {
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.PrefixText
     public boolean enabledKnock = true;
-
-    /* ------ */
-
-    // HUD速度显示
-    @ConfigEntry.Category("display")
-    public boolean enabledHUDSpeed = true;
 
     /* ------ */
 

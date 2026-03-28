@@ -1,6 +1,6 @@
-package com.kssjw.kineticminecart.client.load;
+package com.kssjw.kineticminecart.client.manager;
 
-public class ClientLoad {
+public class ClientLoadManager {
     public static boolean isClientAPIFound() {
         boolean apiFound;
 

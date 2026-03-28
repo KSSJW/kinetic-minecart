@@ -3,20 +3,31 @@
 
     "text.autoconfig.kinetic-minecart.category.general": "一般設定",
     "text.autoconfig.kinetic-minecart.category.types": "類型設定",
+    "text.autoconfig.kinetic-minecart.category.display": "顯示設定",
     "text.autoconfig.kinetic-minecart.category.advanced": "進階設定",
 
-    "text.autoconfig.kinetic-minecart.option.enabled": "啟用模組",
-    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "應用模式",
+    "text.autoconfig.kinetic-minecart.option.enabled.@PrefixText": "主開關",
+    "text.autoconfig.kinetic-minecart.option.enabled": "    啟用模組",
+
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode.@PrefixText": "應用",
+    "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "    應用模式",
     "option.kinetic-minecart.radius": "半徑",
     "option.kinetic-minecart.collide": "相撞",
-    "text.autoconfig.kinetic-minecart.option.intRadius": "半徑",
+    "text.autoconfig.kinetic-minecart.option.intRadius": "    半徑",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[0]": "只在應用模式設為半徑時生效",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[1]": "\n",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[2]": "註：數值會轉換為小數",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[3]": "例：5 -> 0.5 方塊",
     "text.autoconfig.kinetic-minecart.option.intRadius.@Tooltip[4]": "",
-    "text.autoconfig.kinetic-minecart.option.enabledImpact": "啟用撞擊傷害",
-    "text.autoconfig.kinetic-minecart.option.enabledKnock": "啟用擊退",
+
+    "text.autoconfig.kinetic-minecart.option.enabledDamage.@PrefixText": "傷害",
+    "text.autoconfig.kinetic-minecart.option.enabledDamage": "    啟用傷害",
+    "text.autoconfig.kinetic-minecart.option.selectedDamageMode": "    傷害模式",
+    "option.kinetic-minecart.tiereddamage": "分級傷害",
+    "option.kinetic-minecart.directlykill": "直接擊殺",
+
+    "text.autoconfig.kinetic-minecart.option.enabledKnock.@PrefixText": "擊退",
+    "text.autoconfig.kinetic-minecart.option.enabledKnock": "    啟用擊退",
 
     "text.autoconfig.kinetic-minecart.option.excludePlayer": "排除玩家",
 
@@ -55,5 +66,5 @@
     "toast.kinetic-minecart.ExclusionList.title": "排除清單",
     "toast.kinetic-minecart.ExclusionList.desc.empty": "排除清單係空。",
     "toast.kinetic-minecart.ExclusionList.desc.detected": "檢測到排除清單內容。",
-    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§c錯誤: §f未知的 "
+    "toast.kinetic-minecart.ExclusionList.desc.unkonwn": "§c錯誤: §f未知的 ID "
 }
