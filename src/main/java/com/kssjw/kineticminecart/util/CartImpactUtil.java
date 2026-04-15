@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
 public class CartImpactUtil {
@@ -37,6 +38,14 @@ public class CartImpactUtil {
     }
 
     public static void tryKill(Entity target, float speed) {
-        if (speed > 2) target.kill((ServerLevel)target.level());
+        if (speed <= 2) {
+            return;
+        }
+        ServerLevel level = (ServerLevel) target.level();
+        if (target instanceof LivingEntity livingEntity) {
+            livingEntity.hurtServer(level, level.damageSources().flyIntoWall(), Float.MAX_VALUE);
+        } else {
+            target.kill(level);
+        }
     }
 }
