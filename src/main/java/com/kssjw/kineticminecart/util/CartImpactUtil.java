@@ -33,7 +33,7 @@ public class CartImpactUtil {
             damage = (float)Math.pow(speed, 2);
         } else return;
 
-        target.hurtServer((ServerLevel)world, world.damageSources().generic(), damage);  // 处刑
+        target.hurtServer((ServerLevel)world, world.damageSources().flyIntoWall(), damage);  // 处刑
     }
 
     public static void tryKill(Entity target, float speed) {
