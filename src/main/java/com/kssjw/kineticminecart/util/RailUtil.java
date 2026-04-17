@@ -16,11 +16,10 @@ public class RailUtil {
         if (state.getBlock() instanceof RailBlock) {
 
             RailShape shape = state.getValue(BlockStateProperties.RAIL_SHAPE);
-            if (shape == RailShape.NORTH_EAST
-            || shape == RailShape.NORTH_WEST
-            || shape == RailShape.SOUTH_EAST
-            || shape == RailShape.SOUTH_WEST
-            ) return true;
+            return shape == RailShape.NORTH_EAST
+                    || shape == RailShape.NORTH_WEST
+                    || shape == RailShape.SOUTH_EAST
+                    || shape == RailShape.SOUTH_WEST;
         }
 
         return false;   // Fallback

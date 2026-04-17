@@ -11,7 +11,7 @@ public class ConfigManager {
     /* */
 
     public static boolean isEnabled() {
-        return LoadManager.isAPIFound() ? config.enabled : true;
+        return !LoadManager.isAPIFound() || config.enabled;
     }
 
     /* */
@@ -40,7 +40,7 @@ public class ConfigManager {
     /* */
 
     public static boolean isEnabledDamage() {
-        return LoadManager.isAPIFound() ? config.enabledDamage : true;
+        return !LoadManager.isAPIFound() || config.enabledDamage;
     }
 
     public static String getSelectedDamageMode() {
@@ -63,35 +63,35 @@ public class ConfigManager {
     /* */
 
     public static boolean isEnabledKnock() {
-        return LoadManager.isAPIFound() ? config.enabledKnock : true;
+        return !LoadManager.isAPIFound() || config.enabledKnock;
     }
 
     /* ------ */
 
     public static boolean isExcludePlayer() {
-        return LoadManager.isAPIFound() ? config.excludePlayer : false;
+        return LoadManager.isAPIFound() && config.excludePlayer;
     }
 
     public static boolean isExcluePet() {
-        return LoadManager.isAPIFound() ? config.excludePet : false;
+        return LoadManager.isAPIFound() && config.excludePet;
     }
 
     public static boolean isExcludePassenger() {
-        return LoadManager.isAPIFound() ? config.excludePassenger : false;
+        return LoadManager.isAPIFound() && config.excludePassenger;
     }
 
     public static boolean isExcludeNamedEntity() {
-        return LoadManager.isAPIFound() ? config.excludeNamedEntity : false;
+        return LoadManager.isAPIFound() && config.excludeNamedEntity;
     }
 
     public static boolean isExcludItemEntity() {
-        return  LoadManager.isAPIFound() ?config.excludeItemEntity : false;
+        return LoadManager.isAPIFound() && config.excludeItemEntity;
     }
 
     /* ------ */
 
     public static boolean isEnabledExclusionList() {
-        return LoadManager.isAPIFound() ? config.enabledExclusionList : false;
+        return LoadManager.isAPIFound() && config.enabledExclusionList;
     }
 
     public static List<String> getExclusionList() {
