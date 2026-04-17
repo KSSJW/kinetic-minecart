@@ -41,7 +41,7 @@ public class ExclusionListUtil {
             EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getValue(ResourceKey.create(Registries.ENTITY_TYPE, rl));
 
             if (type != null) {
-                if (detected == false) {
+                if (!detected) {
                     sb.append(Component.translatable("toast.kinetic-minecart.ExclusionList.desc.detected"));
                     detected = true;    // 避免重复输出
                 }
@@ -52,7 +52,6 @@ public class ExclusionListUtil {
             } 
         }
 
-        detected = false;   // 重置检测状态
         return sb;
     }
 }
