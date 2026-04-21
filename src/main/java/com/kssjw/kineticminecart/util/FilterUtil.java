@@ -47,11 +47,11 @@ public class FilterUtil {
     // 判断是否被用户排除
     private static boolean isInCustomExclusion(Entity entity) {
         return ConfigManager.isExcludePlayer() && entity instanceof Player
-                || ConfigManager.isExcluePet() && isPet(entity)
-                || ConfigManager.isExcludePassenger() && entity.isPassenger()
-                || ConfigManager.isExcludeNamedEntity() && entity.hasCustomName()
-                || ConfigManager.isExcludItemEntity() && entity instanceof ItemEntity
-                || ConfigManager.isEnabledExclusionList() && isInExclusionList(entity);
+            || ConfigManager.isExcluePet() && isPet(entity)
+            || ConfigManager.isExcludePassenger() && entity.isPassenger()
+            || ConfigManager.isExcludeNamedEntity() && entity.hasCustomName()
+            || ConfigManager.isExcludItemEntity() && entity instanceof ItemEntity
+            || ConfigManager.isEnabledExclusionList() && isInExclusionList(entity);
     }
 
     // 总方法
