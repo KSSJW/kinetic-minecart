@@ -18,7 +18,7 @@ public class ClientHolderManager {
 
         // 监听器，保存配置后触发
         HolderManager.getHolder().registerSaveListener((configHolder, config) -> {
-            if (ConfigManager.isEnabledExclusionList() == true) {
+            if (ConfigManager.isEnabledExclusionList()) {
 
                 // 列表归一化
                 config.exclusionList = config.exclusionList.stream()

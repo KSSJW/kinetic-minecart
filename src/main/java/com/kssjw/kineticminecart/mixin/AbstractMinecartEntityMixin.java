@@ -22,14 +22,10 @@ public class AbstractMinecartEntityMixin {
     @Inject(method = "canCollideWith", at = @At("HEAD"), cancellable = true)
     private void onCollidesWith(Entity other, CallbackInfoReturnable<Boolean> cir) {
         AbstractMinecart self = (AbstractMinecart)(Object)this;
-        switch (KineticManager.getCollideStatus(self, other)) {
-            case -1:
-                return;
-            case 0:
-                cir.setReturnValue(false);
-                break;
-            default:
-                return;
+        int status = KineticManager.getCollideStatus(self, other);
+
+        if (status == 0) {
+            cir.setReturnValue(false);
         }
 	}
 }

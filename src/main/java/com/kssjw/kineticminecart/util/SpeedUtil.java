@@ -17,10 +17,10 @@ public class SpeedUtil {
         float speed = (float)Math.sqrt(speedSqr) * 4;   // 速度转换（每秒）
 
         if (RailUtil.isCurved(minecart)) {
-            return speed *= Math.sqrt(2.0); // 修正为斜角速度
-        } else {
-            return speed;
+            speed *= Math.sqrt(2.0); // 修正为斜角速度
         }
+
+        return speed;
     }
 
     public static Vec3 getVelocity(AbstractMinecart minecart) {

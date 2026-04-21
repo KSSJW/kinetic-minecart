@@ -1,6 +1,8 @@
 package com.kssjw.kineticminecart.manager;
 
 import java.util.List;
+import java.util.Objects;
+
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
 import net.minecraft.world.level.Level;
@@ -17,8 +19,9 @@ public class KineticManager {
     private static void damage(Entity target, float speed) {
         if (target == null || target.level().isClientSide()) return;
 
-        if (ConfigManager.getSelectedDamageMode() == "TieredDamage") CartImpactUtil.tryApplyTieredDamage(target, speed);
-        if (ConfigManager.getSelectedDamageMode() == "DirectlyKill") CartImpactUtil.tryKill(target, speed);
+        String mode = ConfigManager.getSelectedDamageMode();
+        if (Objects.equals(mode, "TieredDamage")) CartImpactUtil.tryApplyTieredDamage(target, speed);
+        else if (Objects.equals(mode, "DirectlyKill")) CartImpactUtil.tryKill(target, speed);
     }
     
     public static void handler(AbstractMinecart self) {
@@ -36,7 +39,9 @@ public class KineticManager {
         // 若矿车速度不足则跳过
         if (speed > 2) {
 
-            if (ConfigManager.getSelectedApplicaionMode() == "Collide") {
+            String mode = ConfigManager.getSelectedApplicaionMode();
+
+            if (Objects.equals(mode, "Collide")) {
 
                 // 获取附近实体并过滤一些不需要的类型：自身、已死、被排除、不在碰撞箱内
                 List<Entity> list = world.getEntities(
@@ -56,9 +61,7 @@ public class KineticManager {
                     if (ConfigManager.isEnabledKnock()) CartKnockUtil.tryApplyKnock(self, target, mv, speed);
                     if (ConfigManager.isEnabledDamage()) DelayUtil.schedule(1, () -> damage(target, speed));
                 }
-            }
-
-            if (ConfigManager.getSelectedApplicaionMode() == "Radius") {
+            } else if (Objects.equals(mode, "Radius")) {
                 AABB box = self.getBoundingBox().inflate(ConfigManager.getRadius());  // 检测范围
 
                 // 获取附近实体并过滤一些不需要的类型：自身、已死、被排除
@@ -87,7 +90,7 @@ public class KineticManager {
 
     public static int getCollideStatus(AbstractMinecart minecart, Entity target) {
         if (!ConfigManager.isEnabled()
-            || ConfigManager.getSelectedApplicaionMode() != "Collide"
+            || !Objects.equals(ConfigManager.getSelectedApplicaionMode(), "Collide")
             || minecart == null
             || target instanceof AbstractMinecart
         ) return -1;

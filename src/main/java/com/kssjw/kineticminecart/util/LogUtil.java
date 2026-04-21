@@ -8,6 +8,6 @@ public class LogUtil {
     private static final String HEAD = "[Kinetic Minecart] ";    // 最后有一个空格
 
     public static void print(Object object) {
-        System.out.println(HEAD + String.valueOf(object));
+        System.out.println(HEAD + object);
     }
 }
