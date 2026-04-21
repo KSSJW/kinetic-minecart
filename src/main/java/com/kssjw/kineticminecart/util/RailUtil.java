@@ -17,9 +17,9 @@ public class RailUtil {
 
             RailShape shape = state.getValue(BlockStateProperties.RAIL_SHAPE);
             return shape == RailShape.NORTH_EAST
-                    || shape == RailShape.NORTH_WEST
-                    || shape == RailShape.SOUTH_EAST
-                    || shape == RailShape.SOUTH_WEST;
+                || shape == RailShape.NORTH_WEST
+                || shape == RailShape.SOUTH_EAST
+                || shape == RailShape.SOUTH_WEST;
         }
 
         return false;   // Fallback
