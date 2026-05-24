@@ -21,7 +21,7 @@ public class ConfigEntry implements ModMenuApi {
             
             if (isMultiplayerWorld) return IllegalOperationScreenUtil.get(parent);  // 多人模式拦截
 
-            if (!ClientLoadManager.isClientAPIFound()) {
+            if (!ClientLoadManager.isAPIFound()) {
                 Component title = Component.translatable("toast.kinetic-minecart.apinotfound.title");
                 Component desc = Component.translatable("toast.kinetic-minecart.apinotfound.desc");
                 ToastUtil.toast(title, desc);

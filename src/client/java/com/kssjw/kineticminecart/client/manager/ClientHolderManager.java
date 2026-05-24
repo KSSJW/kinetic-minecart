@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 
 import com.kssjw.kineticminecart.client.util.ToastUtil;
 import com.kssjw.kineticminecart.manager.ConfigManager;
-import com.kssjw.kineticminecart.manager.HolderManager;
+import com.kssjw.kineticminecart.manager.LoadManager;
 import com.kssjw.kineticminecart.util.ExclusionListUtil;
 import com.kssjw.kineticminecart.util.LogUtil;
 
@@ -14,10 +14,10 @@ import net.minecraft.world.InteractionResult;
 public class ClientHolderManager {
 
     public static void init() {
-        if (HolderManager.getHolder() == null) return;
+        if (LoadManager.getHolder() == null) return;
 
         // 监听器，保存配置后触发
-        HolderManager.getHolder().registerSaveListener((configHolder, config) -> {
+        LoadManager.getHolder().registerSaveListener((configHolder, config) -> {
             if (ConfigManager.isEnabledExclusionList()) {
 
                 // 列表归一化

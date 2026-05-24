@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "kinetic-minecart",
-	"version": "2.3.0+26.1.fabric",
+	"version": "${version}",
 	"name": "Kinetic Minecart",
 	"description": "Impact damage from high-speed minecarts!",
 	"authors": [
@@ -16,7 +16,6 @@
 		"modmenu": {
 			"links": {
 				"modmenu.modrinth": "https://modrinth.com/mod/kinetic-minecart",
-				"modmenu.discord": "https://discord.gg/Ms9P9YsZXt",
 				"modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/kinetic-minecart"
 			}
 		}

@@ -10,6 +10,7 @@ public class KineticMinecartClient implements ClientModInitializer {
     
     @Override
     public void onInitializeClient() {
-        if (LoadManager.isAPIFound() && ClientLoadManager.isClientAPIFound()) ClientHolderManager.init(); // 监听器初始化
+        ClientLoadManager.init();
+        if (ClientLoadManager.isAPIFound() && LoadManager.isAPIFound()) ClientHolderManager.init(); // 监听器初始化
     }
 }

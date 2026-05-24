@@ -28,6 +28,8 @@ public class SpeedUtil {
     }
 
     public static void setVelocity(AbstractMinecart minecart, Vec3 mv) {
+        if (mv == null) return;
+
         minecart.setDeltaMovement(mv);
     }
 }

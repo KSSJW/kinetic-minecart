@@ -15,7 +15,9 @@ public class ExclusionListUtil {
     
     // 列表归一化方法
     public static String normalizeId(String id) {
-    Identifier rl = Identifier.tryParse(id);
+        if (id == null) return id;
+
+        Identifier rl = Identifier.tryParse(id);
 
         if (rl == null) return id; // 无效 ID 原样返回
 
@@ -37,7 +39,12 @@ public class ExclusionListUtil {
 
         boolean detected = false;
         for (String id : inputList) {
+            if (id == null) return Component.empty();
+
             Identifier rl = Identifier.tryParse(id);
+
+            if (rl == null) return Component.empty();
+
             EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getValue(ResourceKey.create(Registries.ENTITY_TYPE, rl));
 
             if (type != null) {

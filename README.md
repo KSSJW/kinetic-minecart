@@ -2,45 +2,68 @@
 
 This mod increases damage to moving minecarts; the faster they move, the higher the damage, with virtually no damage limit!
 
-## Loader
+## Loaders
 
-[![Fabric](https://img.shields.io/badge/Available%20for-Fabric-dbd0b4)](https://fabricmc.net) [![NeoForge](https://img.shields.io/badge/Available%20for-NeoForge-e68c37)](https://neoforged.net) [![Forge](https://img.shields.io/badge/Available%20for-Forge-2e435f)](https://files.minecraftforge.net/)
+[![Fabric](https://img.shields.io/badge/Available%20for-Fabric-dbd0b4)](https://fabricmc.net)
+[![NeoForge](https://img.shields.io/badge/Available%20for-NeoForge-e68c37)](https://neoforged.net)
+[![Forge](https://img.shields.io/badge/Available%20for-Forge-2e435f)](https://files.minecraftforge.net/)
 
-## Environment
+## Environments
 
-![Client only](https://img.shields.io/badge/Side-Server%20and%20Client-3c8527)
+![Server Required](https://img.shields.io/badge/Side-Server%20Required-258585)
+![Client Optional](https://img.shields.io/badge/Side-Client%20Optional-3c8527)
 
 ## Releases
 
-[![Github](https://img.shields.io/badge/Published%20in-GitHub-808284?logo=github&logoColor=white)](https://github.com/KSSJW/kinetic-minecart/releases) [![Modrinth](https://img.shields.io/badge/Published%20in-Modrinth-1bd96a?logo=modrinth&logoColor=white)](https://modrinth.com/mod/kinetic-minecart) [![CurseForge](https://img.shields.io/badge/Published%20in-CurseForge-f16436?logo=curseforge&logoColor=white)](https://www.curseforge.com/minecraft/mc-mods/kinetic-minecart)
+[![Github](https://img.shields.io/badge/Published%20on-GitHub-808284?logo=github&logoColor=white)](https://github.com/KSSJW/kinetic-minecart/releases)
+[![Modrinth](https://img.shields.io/badge/Published%20on-Modrinth-1bd96a?logo=modrinth&logoColor=white)](https://modrinth.com/mod/kinetic-minecart)
+[![CurseForge](https://img.shields.io/badge/Published%20on-CurseForge-f16436?logo=curseforge&logoColor=white)](https://www.curseforge.com/minecraft/mc-mods/kinetic-minecart)
 
 ## Compatibility
 
-- ### Fabric
+### Fabric
 
-  - Fabric API (Required)
-  - Cloth Config API (Recommended) (Custom configuration features)
-  - Mod Menu (Recommended) (Mod configuration page)
+[Fabric API](https://github.com/FabricMC/fabric-api)
 
-- ### NeoForge
+[Cloth Config API](https://github.com/shedaniel/cloth-config)
 
-  - Cloth Config API (Recommended) (Custom configuration features)
-  
-- ### Forge
+[Mod Menu](https://github.com/TerraformersMC/ModMenu)
 
-  - Cloth Config API (Recommended) (Custom configuration features)
+| Server Mod        | Relation      | Description |
+| :---------------- | :------------ | :--- |
+| Fabric API        | **Required**  | - |
+| Cloth Config API  | Optional      | Custom Configuration Features |
+
+| Client Mod        | Relation      | Description |
+| :---------------- | :------------ | :--- |
+| Fabric API        | **Required**  | - |
+| Cloth Config API  | Optional      | Configuration Controller |
+| Mod Menu          | Optional      | Configuration Entry |
+
+### NeoForge / Forge
+
+[Cloth Config API](https://github.com/shedaniel/cloth-config)
+
+| Server Mod        | Relation      | Description |
+| :---------------- | :------------ | :--- |
+| Cloth Config API  | Optional      | Custom Configuration Features |
+
+| Client Mod        | Relation      | Description |
+| :---------------- | :------------ | :--- |
+| Cloth Config API  | Optional      | Configuration Controller |
 
 ## Progress
 
 Check out the latest development progress here. [Development Progress](https://www.windysky.top/docs/minecraft-java-edition/kinetic-minecart/version)
 
-## Main Gallery
+## Gallery
 
 ![A Creeper that was hit](/images/Big.png)
 
 ## Features
 
-- The damage dealt by minecarts is related to their speed:
+- The damage dealt by minecarts is related to their **Speed**:
+
 ```
 Speed >= 6			-> Damage = Speed cubed;
 
@@ -50,16 +73,18 @@ Target has Vehicle  -> Damage = Speed;
 
 Speed <= 2			-> Damage = 0;
 ```
-> [!NOTE]
-> Theoretically, there is **No Damage Limit**.
 
 - After being hit by a minecart, the entity is propelled approximately the same distance as its speed.
-
-- Minecarts do not stop after hitting an entity.
 
 - It offers custom configuration options, including customizing the collision effects of the minecart.
 
 ## Configuration
+
+Configuration files that will be generated after installing `Cloth Config API`:
+
+- `.../config/kinetic-minecart.json`
+
+### Singleplayer Mode
 
 ![Configuration1](/images/Configuration1.png)
 
@@ -71,14 +96,43 @@ Speed <= 2			-> Damage = 0;
 
 ![Exclusion List](/images/ExclusionList.png)
 
-- In multiplayer mode, you cannot change the configuration via the menu; instead, the server administrator needs to modify the 'kinetic-minecart.json' file. Below is an example:
+### Multiplayer Mode
 
-![Config File](/images/ConfigFile.png)
+- In **Multiplayer Mode**, you **Cannot** change the configuration via the menu; instead, the server administrator needs to modify the 'kinetic-minecart.json' file. Below is an example:
 
-- selectedApplicaionMode -> Radius / Collide
+```
+kinetic-minecart.json
+  [enabled] Value: true/false, Default: true
 
-- intRadius -> 3 ~ 10 (5 -> 0.5 block)
+  [selectedApplicaionMode] Value: "Collide"/"Radius", Default: "Collide"
+  [intRadius] Range: 3 - 10, Default: 5
 
-## Contributing
+  [enabledDamage] Value: true/false, Default: true
+  [selectedDamageMode] Value: "TieredDamage"/"DirectlyKill", Default: "TieredDamage"
 
-[Contributing for Project](/CONTRIBUTING.md)
+  [enabledKnock] Value: true/false, Default: true
+
+  [excludePlayer] Value: true/false, Default: false
+  [excludePet] Value: true/false, Default: false
+  [excludePassenger] Value: true/false, Default: true
+  [excludeNamedEntity] Value: true/false, Default: false
+  [excludeItemEntity] Value: true/false, Default: false
+
+  [enabledExclusionList] Value: true/false, Default: false
+  [exclusionList]
+    Value: [
+      "<Namespace>:<Path>",
+      "<Namespace>:<Path>",
+      ...
+      "<Namespace>:<Path>"
+    ]
+    Example: [
+      "minecraft:creeper",
+      "minecraft:cat",
+      "minecraft:fox",
+      "minecraft:pig",
+      "minecraft:wolf",
+      "minecraft:zombie"
+    ]
+    Default: []
+```

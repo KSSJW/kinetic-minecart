@@ -3,6 +3,8 @@ package com.kssjw.kineticminecart.extension.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jspecify.annotations.NonNull;
+
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
@@ -15,8 +17,8 @@ public class ConfigValue implements ConfigData {
         Radius("option.kinetic-minecart.radius"),
         Collide("option.kinetic-minecart.collide");
 
-        private final String key;
-        applicaionMode(String key) { this.key = key;}
+        private final @NonNull String key;
+        applicaionMode(@NonNull String key) { this.key = key;}
 
         @Override
         public String toString() {
@@ -28,8 +30,8 @@ public class ConfigValue implements ConfigData {
         TieredDamage("option.kinetic-minecart.tiereddamage"),
         DirectlyKill("option.kinetic-minecart.directlykill");
 
-        private final String key;
-        damageMode(String key) { this.key = key;}
+        private final @NonNull String key;
+        damageMode(@NonNull String key) { this.key = key;}
 
         @Override
         public String toString() {
@@ -90,7 +92,7 @@ public class ConfigValue implements ConfigData {
 
     // 排除乘客
     @ConfigEntry.Category("types")
-    public boolean excludePassenger = false;
+    public boolean excludePassenger = true;
 
     // 排除被命名的实体
     @ConfigEntry.Category("types")

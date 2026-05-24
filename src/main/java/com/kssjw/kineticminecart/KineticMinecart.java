@@ -1,6 +1,5 @@
 package com.kssjw.kineticminecart;
 
-import com.kssjw.kineticminecart.manager.HolderManager;
 import com.kssjw.kineticminecart.manager.LoadManager;
 import com.kssjw.kineticminecart.util.DelayUtil;
 import com.kssjw.kineticminecart.util.LogUtil;
@@ -17,7 +16,7 @@ public class KineticMinecart implements ModInitializer {
                 DelayUtil.tick();
             }
         );
-        if (LoadManager.isAPIFound()) HolderManager.init(); // 注册配置与监听器
+        LoadManager.init();
         LogUtil.print("Initialized.");
     }
 }

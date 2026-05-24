@@ -24,7 +24,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"modid" {
+		"kinetic-minecart" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

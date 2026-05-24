@@ -77,7 +77,7 @@ public class ConfigManager {
     }
 
     public static boolean isExcludePassenger() {
-        return LoadManager.isAPIFound() && config.excludePassenger;
+        return !LoadManager.isAPIFound() || config.excludePassenger;
     }
 
     public static boolean isExcludeNamedEntity() {

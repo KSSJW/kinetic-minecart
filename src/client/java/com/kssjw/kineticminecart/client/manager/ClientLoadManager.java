@@ -1,12 +1,18 @@
 package com.kssjw.kineticminecart.client.manager;
 
 public class ClientLoadManager {
-    public static boolean isClientAPIFound() {
+    private static boolean apiFound;
+
+    public static void init() {
         try {
-            Class.forName("me.shedaniel.autoconfig.AutoConfigClient");
-            return true;
+            Class.forName("me.shedaniel.autoconfig.AutoConfig");
+            apiFound = true;
         } catch (ClassNotFoundException e) {
-            return false;
+            apiFound = false;
         }
+    }
+
+    public static boolean isAPIFound() {
+        return apiFound;
     }
 }
