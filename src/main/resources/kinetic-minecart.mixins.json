@@ -3,7 +3,8 @@
 	"package": "com.kssjw.kineticminecart.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"AbstractMinecartMixin"
+		"AbstractMinecartMixin",
+		"MinecartMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

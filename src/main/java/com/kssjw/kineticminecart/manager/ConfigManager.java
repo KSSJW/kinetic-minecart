@@ -16,6 +16,16 @@ public class ConfigManager {
 
     /* */
 
+    public static boolean isOverroadCollision() {
+        return !LoadManager.isAPIFound() || config.overroadCollision;
+    }
+
+    public static boolean isOverroadRiding() {
+        return !LoadManager.isAPIFound() || config.overroadRiding;
+    }
+
+    /* */
+
     public static String getSelectedApplicaionMode() {
         if (LoadManager.isAPIFound()) {
             switch (config.selectedApplicaionMode) {

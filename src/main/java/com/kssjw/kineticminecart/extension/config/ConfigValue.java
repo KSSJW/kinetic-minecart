@@ -48,6 +48,15 @@ public class ConfigValue implements ConfigData {
 
     /* */
 
+    @ConfigEntry.Category("general")
+    @ConfigEntry.Gui.PrefixText
+    public boolean overroadCollision = true;
+
+    @ConfigEntry.Category("general")
+    public boolean overroadRiding = true;
+
+    /* */
+
     // 应用模式
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.PrefixText

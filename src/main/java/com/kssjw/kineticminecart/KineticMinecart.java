@@ -2,7 +2,6 @@ package com.kssjw.kineticminecart;
 
 import com.kssjw.kineticminecart.manager.LoadManager;
 import com.kssjw.kineticminecart.util.DelayUtil;
-import com.kssjw.kineticminecart.util.LogUtil;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -17,6 +16,5 @@ public class KineticMinecart implements ModInitializer {
             }
         );
         LoadManager.init();
-        LogUtil.print("Initialized.");
     }
 }
