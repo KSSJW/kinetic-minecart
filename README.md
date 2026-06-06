@@ -104,6 +104,9 @@ Configuration files that will be generated after installing `Cloth Config API`:
 kinetic-minecart.json
   [enabled] Value: true/false, Default: true
 
+  [overrideCollision] Value: true/false, Default: true
+  [overrideRiding] Value: true/false, Default: true
+
   [selectedApplicaionMode] Value: "Collide"/"Radius", Default: "Collide"
   [intRadius] Range: 3 - 10, Default: 5
 

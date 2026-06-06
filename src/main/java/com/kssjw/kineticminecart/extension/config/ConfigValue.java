@@ -48,12 +48,14 @@ public class ConfigValue implements ConfigData {
 
     /* */
 
+    // 复写碰撞
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.PrefixText
-    public boolean overroadCollision = true;
+    public boolean overrideCollision = true;
 
+    // 复写乘骑
     @ConfigEntry.Category("general")
-    public boolean overroadRiding = true;
+    public boolean overrideRiding = true;
 
     /* */
 

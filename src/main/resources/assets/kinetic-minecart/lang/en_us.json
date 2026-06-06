@@ -9,6 +9,10 @@
     "text.autoconfig.kinetic-minecart.option.enabled.@PrefixText": "Main Switch",
     "text.autoconfig.kinetic-minecart.option.enabled": "    Enable Mod",
 
+    "text.autoconfig.kinetic-minecart.option.overrideCollision.@PrefixText": "Override",
+    "text.autoconfig.kinetic-minecart.option.overrideCollision": "    Override Collision",
+    "text.autoconfig.kinetic-minecart.option.overrideRiding": "    Override Riding",
+
     "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode.@PrefixText": "Application",
     "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "    Application Mode",
     "option.kinetic-minecart.radius": "Radius",

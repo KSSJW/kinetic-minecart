@@ -90,7 +90,7 @@ public class KineticManager {
 
     public static int getCollideStatus(AbstractMinecart minecart, Entity target) {
         if (!ConfigManager.isEnabled()
-            || !ConfigManager.isOverroadCollision()
+            || !ConfigManager.isOverrideCollision()
             || minecart == null
             || target instanceof AbstractMinecart
         ) return -1;

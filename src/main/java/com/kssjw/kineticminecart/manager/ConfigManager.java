@@ -16,12 +16,12 @@ public class ConfigManager {
 
     /* */
 
-    public static boolean isOverroadCollision() {
-        return !LoadManager.isAPIFound() || config.overroadCollision;
+    public static boolean isOverrideCollision() {
+        return !LoadManager.isAPIFound() || config.overrideCollision;
     }
 
-    public static boolean isOverroadRiding() {
-        return !LoadManager.isAPIFound() || config.overroadRiding;
+    public static boolean isOverrideRiding() {
+        return !LoadManager.isAPIFound() || config.overrideRiding;
     }
 
     /* */

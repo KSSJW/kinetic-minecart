@@ -9,6 +9,10 @@
     "text.autoconfig.kinetic-minecart.option.enabled.@PrefixText": "主開關",
     "text.autoconfig.kinetic-minecart.option.enabled": "    啟用模組",
 
+    "text.autoconfig.kinetic-minecart.option.overrideCollision.@PrefixText": "覆寫",
+    "text.autoconfig.kinetic-minecart.option.overrideCollision": "    覆寫碰撞",
+    "text.autoconfig.kinetic-minecart.option.overrideRiding": "    覆寫騎乘",
+
     "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode.@PrefixText": "應用",
     "text.autoconfig.kinetic-minecart.option.selectedApplicaionMode": "    應用模式",
     "option.kinetic-minecart.radius": "半徑",
