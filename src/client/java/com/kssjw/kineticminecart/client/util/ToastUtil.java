@@ -12,7 +12,7 @@ public class ToastUtil {
     public static void toast(Component title, Component description) {
         if (title == null) return;
 
-        ToastManager toastManager = Minecraft.getInstance().getToastManager();
+        ToastManager toastManager = Minecraft.getInstance().gui.toastManager();
         SystemToast.addOrUpdate(
             toastManager,
             SystemToast.SystemToastId.NARRATOR_TOGGLE,
