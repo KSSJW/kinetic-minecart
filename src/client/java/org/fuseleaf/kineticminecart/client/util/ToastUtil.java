@@ -1,0 +1,25 @@
+package org.fuseleaf.kineticminecart.client.util;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.toasts.SystemToast;
+import net.minecraft.client.gui.components.toasts.ToastManager;
+import net.minecraft.network.chat.Component;
+
+public class ToastUtil {
+
+    private ToastUtil() {}
+
+    public static void toast(Component title, Component description) {
+        if (title == null) {
+            return;
+        }
+
+        ToastManager toastManager = Minecraft.getInstance().gui.toastManager();
+        SystemToast.addOrUpdate(
+            toastManager,
+            SystemToast.SystemToastId.NARRATOR_TOGGLE,
+            title,
+            description
+        );
+    }
+}

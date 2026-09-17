@@ -5,12 +5,12 @@
 	"name": "Kinetic Minecart",
 	"description": "Impact damage from high-speed minecarts!",
 	"authors": [
-		"KSSJW"
+		"FuseLeaf Studio"
 	],
 	"contact": {
-		"homepage": "https://github.com/KSSJW/kinetic-minecart",
-		"issues": "https://github.com/KSSJW/kinetic-minecart/issues",
-		"sources": "https://github.com/KSSJW/kinetic-minecart"
+		"homepage": "https://github.com/FuseLeaf/kinetic-minecart",
+		"issues": "https://github.com/FuseLeaf/kinetic-minecart/issues",
+		"sources": "https://github.com/FuseLeaf/kinetic-minecart"
 	},
 	"custom": {
 		"modmenu": {
@@ -25,13 +25,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.kssjw.kineticminecart.KineticMinecart"
+			"org.fuseleaf.kineticminecart.KineticMinecart"
 		],
 		"client": [
-			"com.kssjw.kineticminecart.client.KineticMinecartClient"
+			"org.fuseleaf.kineticminecart.client.KineticMinecartClient"
 		],
 		"modmenu": [
-			"com.kssjw.kineticminecart.client.extension.config.ConfigEntry"
+			"org.fuseleaf.kineticminecart.client.extension.config.ConfigEntry"
 		]
 	},
 	"mixins": [
@@ -42,8 +42,8 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.19.3",
-		"minecraft": ">=26.2",
+		"fabricloader": ">=0.19.5",
+		"minecraft": ">=26.3",
 		"java": ">=25",
 		"fabric-api": "*"
 	},

@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "com.kssjw.kineticminecart.mixin",
+	"package": "org.fuseleaf.kineticminecart.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
 		"AbstractMinecartMixin",
