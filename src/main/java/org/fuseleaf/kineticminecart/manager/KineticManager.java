@@ -3,6 +3,7 @@ package org.fuseleaf.kineticminecart.manager;
 import java.util.List;
 import java.util.Objects;
 
+import org.fuseleaf.kineticminecart.config.ConfigManager;
 import org.fuseleaf.kineticminecart.util.CartImpactUtil;
 import org.fuseleaf.kineticminecart.util.CartKnockUtil;
 import org.fuseleaf.kineticminecart.util.DelayUtil;

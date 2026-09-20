@@ -1,7 +1,8 @@
 package org.fuseleaf.kineticminecart.mixin;
 
-import org.fuseleaf.kineticminecart.manager.ConfigManager;
+import org.fuseleaf.kineticminecart.config.ConfigManager;
 import org.fuseleaf.kineticminecart.util.SpeedUtil;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

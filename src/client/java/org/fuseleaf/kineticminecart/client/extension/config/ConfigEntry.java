@@ -3,10 +3,11 @@ package org.fuseleaf.kineticminecart.client.extension.config;
 import org.fuseleaf.kineticminecart.client.manager.ClientLoadManager;
 import org.fuseleaf.kineticminecart.client.util.IllegalOperationScreenUtil;
 import org.fuseleaf.kineticminecart.client.util.ToastUtil;
-import org.fuseleaf.kineticminecart.extension.config.ConfigValue;
+import org.fuseleaf.kineticminecart.extension.config.ConfigData;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 
@@ -30,7 +31,7 @@ public class ConfigEntry implements ModMenuApi {
                 ToastUtil.toast(title, desc);
                 return null;
             } else {
-                return me.shedaniel.autoconfig.AutoConfigClient.getConfigScreen(ConfigValue.class, parent).get();
+                return me.shedaniel.autoconfig.AutoConfigClient.getConfigScreen(ConfigData.class, parent).get();
             }
         };
     }

@@ -1,6 +1,6 @@
 package org.fuseleaf.kineticminecart.util;
 
-import org.fuseleaf.kineticminecart.manager.ConfigManager;
+import org.fuseleaf.kineticminecart.config.ConfigManager;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Entity;

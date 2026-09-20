@@ -3,8 +3,7 @@ package org.fuseleaf.kineticminecart.client.manager;
 import java.util.stream.Collectors;
 
 import org.fuseleaf.kineticminecart.client.util.ToastUtil;
-import org.fuseleaf.kineticminecart.manager.ConfigManager;
-import org.fuseleaf.kineticminecart.manager.LoadManager;
+import org.fuseleaf.kineticminecart.config.ConfigManager;
 import org.fuseleaf.kineticminecart.util.ExclusionListUtil;
 import org.fuseleaf.kineticminecart.util.LogUtil;
 
@@ -14,12 +13,12 @@ import net.minecraft.world.InteractionResult;
 public class ClientHolderManager {
 
     public static void init() {
-        if (LoadManager.getHolder() == null) {
+        if (ConfigManager.getConfigHolder() == null) {
             return;
         }
 
         // 监听器，保存配置后触发
-        LoadManager.getHolder().registerSaveListener((configHolder, config) -> {
+        ConfigManager.getConfigHolder().registerSaveListener((configHolder, config) -> {
             if (ConfigManager.isEnabledExclusionList()) {
 
                 // 列表归一化
