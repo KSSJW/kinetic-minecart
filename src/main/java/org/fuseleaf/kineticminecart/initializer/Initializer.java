@@ -33,7 +33,7 @@ public class Initializer {
         private static void init() {
             ServerTickEvents.END_SERVER_TICK.register(
                 (server) -> {
-                    DelayUtil.tick();
+                    DelayUtil.register();
                 }
             );
         }
