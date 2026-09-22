@@ -6,7 +6,6 @@ import org.fuseleaf.kineticminecart.config.ConfigManager;
 import org.fuseleaf.kineticminecart.extension.config.ConfigEnum;
 import org.fuseleaf.kineticminecart.util.DelayUtil;
 import org.fuseleaf.kineticminecart.util.FilterUtil;
-import org.fuseleaf.kineticminecart.util.SpeedUtil;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
@@ -15,16 +14,18 @@ import net.minecraft.world.phys.Vec3;
 
 public class KineticManager {
 
+    private static final double DELTA_SPEED_THRESHOLD = 10.0;   // The maximum delta speed is about 40.
+
     public static void tick(AbstractMinecart cart) {
         if (cart == null || !ConfigManager.isEnabled()) {
             return;
         }
 
         Level world = cart.level();
-        float speed = SpeedUtil.getSpeed(cart);
-        Vec3 mv = SpeedUtil.getVelocity(cart);
+        double speed = getDeltaSpeedPerSecond(cart);
+        Vec3 mv = cart.getDeltaMovement();
 
-        if (world.isClientSide() || speed <= 2) {
+        if (world.isClientSide() || !isSpeedThresholdReached(cart)) {
             return;
         }
 
@@ -61,7 +62,7 @@ public class KineticManager {
                         e != cart
                         && e.isAlive()
                         && !FilterUtil.isExclued(cart, e)
-                        && e.getVehicle() != cart   // Exclude the passenger of this vehicle
+                        && e.getVehicle() != cart   // Exclude the passenger of this vehicle.
                     )
                 );
 
@@ -80,22 +81,14 @@ public class KineticManager {
                 break;
         }
 
-        SpeedUtil.setVelocity(cart, mv);
+        cart.setDeltaMovement(mv);
     }
 
-    public static int getCollideStatus(AbstractMinecart minecart, Entity target) {
-        if (!ConfigManager.isEnabled()
-            || !ConfigManager.isOverrideCollision()
-            || minecart == null
-            || target instanceof AbstractMinecart
-        ) {
-            return -1;
-        }
+    public static double getDeltaSpeedPerSecond(AbstractMinecart cart) {
+        return cart.getDeltaMovement().length() * 20.0;
+    }
 
-        if (SpeedUtil.getSpeed(minecart) > 2) {
-            return 0;
-        } else {
-            return -1;
-        }
+    public static boolean isSpeedThresholdReached(AbstractMinecart cart) {
+        return getDeltaSpeedPerSecond(cart) >= DELTA_SPEED_THRESHOLD;
     }
 }

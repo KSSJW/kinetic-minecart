@@ -1,8 +1,6 @@
 package org.fuseleaf.kineticminecart.mixin;
 
-import org.fuseleaf.kineticminecart.config.ConfigManager;
-import org.fuseleaf.kineticminecart.util.SpeedUtil;
-
+import org.fuseleaf.kineticminecart.kinetic.CartBehavior;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,9 +13,7 @@ public class MinecartMixin {
 
     @Inject(method = "isRideable", at = @At("TAIL"), cancellable = true)
     private void injectIsRideable(CallbackInfoReturnable<Boolean> cir) {
-        Minecart self = (Minecart)(Object)this;
-
-        if (ConfigManager.isOverrideRiding() && SpeedUtil.getSpeed(self) > 2) {
+        if (CartBehavior.isRidingDisabled((Minecart)(Object)this)) {
             cir.setReturnValue(false);
         }
     }

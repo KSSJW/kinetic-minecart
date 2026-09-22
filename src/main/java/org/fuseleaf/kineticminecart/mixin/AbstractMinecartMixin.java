@@ -1,5 +1,6 @@
 package org.fuseleaf.kineticminecart.mixin;
 
+import org.fuseleaf.kineticminecart.kinetic.CartBehavior;
 import org.fuseleaf.kineticminecart.kinetic.KineticManager;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,10 +21,8 @@ public class AbstractMinecartMixin {
     }
 
     @Inject(method = "canCollideWith", at = @At("HEAD"), cancellable = true)
-    private void injectCanCollideWith(Entity other, CallbackInfoReturnable<Boolean> cir) {
-        int status = KineticManager.getCollideStatus((AbstractMinecart)(Object)this, other);
-
-        if (status == 0) {
+    private void injectCanCollideWith(Entity entity, CallbackInfoReturnable<Boolean> cir) {
+        if (CartBehavior.isCollisionDisabledWith((AbstractMinecart)(Object)this, entity)) {
             cir.setReturnValue(false);
         }
     }

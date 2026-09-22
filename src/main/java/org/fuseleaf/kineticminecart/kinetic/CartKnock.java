@@ -8,7 +8,7 @@ public class CartKnock {
 
     private CartKnock() {}
 
-    public static void knock(AbstractMinecart minecart, Entity target, Vec3 mv, float speed) {
+    public static void knock(AbstractMinecart minecart, Entity target, Vec3 mv, double speed) {
         Vec3 dir = target.position().subtract(minecart.position());
         double len = dir.length();
         Vec3 knockDir;
@@ -20,7 +20,7 @@ public class CartKnock {
             knockDir = dir.scale(1.0 / len);
         }
 
-        Vec3 add = knockDir.scale(speed);
+        Vec3 add = knockDir.scale(speed / 5.0);
         Vec3 current = target.getDeltaMovement();
         Vec3 next = current.add(add);
 

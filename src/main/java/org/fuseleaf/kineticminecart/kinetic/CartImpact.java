@@ -15,9 +15,9 @@ public class CartImpact {
 
     private CartImpact() {}
 
-    private static final Map<Integer, Long> LAST_HIT_TICKS = new ConcurrentHashMap<>();   // lastHitTicks 存储 entityId -> lastHitGameTime（server tick time）
+    private static final Map<Integer, Long> LAST_HIT_TICKS = new ConcurrentHashMap<>();
 
-    public static void damage(Entity target, float speed) {
+    public static void damage(Entity target, double speed) {
         if (target == null) {
             return;
         }
@@ -37,7 +37,7 @@ public class CartImpact {
         }
     }
 
-    private static void tieredDamage(Entity target, float speed) {
+    private static void tieredDamage(Entity target, double speed) {
         Level world = target.level();
 
         long now = world.getGameTime();
@@ -56,9 +56,9 @@ public class CartImpact {
             damage = (float)speed;
         }
 
-        if (speed >= 6) {
+        if (speed >= 30.0) {
             damage = (float)Math.pow(speed, 3);
-        } else if (speed < 6 && speed > 2) {
+        } else if (speed < 30.0 && speed > 10.0) {
             damage = (float)Math.pow(speed, 2);
         } else {
             return;
@@ -67,7 +67,7 @@ public class CartImpact {
         target.hurtServer((ServerLevel)world, world.damageSources().flyIntoWall(), damage);
     }
 
-    private static void kill(Entity target, float speed) {
+    private static void kill(Entity target, double speed) {
         if (speed <= 2) {
             return;
         }
