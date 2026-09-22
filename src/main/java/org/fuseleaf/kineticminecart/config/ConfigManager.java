@@ -46,21 +46,8 @@ public class ConfigManager {
         return !ConfigManager.isConfigAvailable() || config.overrideRiding;
     }
 
-    public static String getSelectedApplicaionMode() {
-        if (ConfigManager.isConfigAvailable()) {
-            switch (config.selectedApplicaionMode) {
-                case ConfigEnum.ApplicaionMode.Collide:
-                    return "Collide";
-
-                case ConfigEnum.ApplicaionMode.Radius:
-                    return "Radius";
-
-                default:
-                    return null;
-            }
-        } else {
-            return "Collide";
-        }
+    public static ConfigEnum.ApplicationMode getSelectedApplicationMode() {
+        return isConfigAvailable() ? config.selectedApplicationMode : null;
     }
 
     public static double getRadius() {
@@ -71,21 +58,8 @@ public class ConfigManager {
         return !ConfigManager.isConfigAvailable() || config.enabledDamage;
     }
 
-    public static String getSelectedDamageMode() {
-        if (ConfigManager.isConfigAvailable()) {
-            switch (config.selectedDamageMode) {
-                case ConfigEnum.DamageMode.TieredDamage:
-                    return "TieredDamage";
-
-                case ConfigEnum.DamageMode.DirectlyKill:
-                    return "DirectlyKill";
-
-                default:
-                    return null;
-            }
-        } else {
-            return "TieredDamage";
-        }
+    public static ConfigEnum.DamageMode getSelectedDamageMode() {
+        return isConfigAvailable() ? config.selectedDamageMode : null;
     }
 
     public static boolean isEnabledKnock() {

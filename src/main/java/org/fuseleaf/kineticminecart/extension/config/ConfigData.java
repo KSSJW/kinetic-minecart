@@ -3,7 +3,7 @@ package org.fuseleaf.kineticminecart.extension.config;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.fuseleaf.kineticminecart.extension.config.ConfigEnum.ApplicaionMode;
+import org.fuseleaf.kineticminecart.extension.config.ConfigEnum.ApplicationMode;
 import org.fuseleaf.kineticminecart.extension.config.ConfigEnum.DamageMode;
 
 import me.shedaniel.autoconfig.annotation.Config;
@@ -36,7 +36,7 @@ public class ConfigData implements me.shedaniel.autoconfig.ConfigData {
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.PrefixText
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-    public ApplicaionMode selectedApplicaionMode = ApplicaionMode.Collide;
+    public ApplicationMode selectedApplicationMode = ApplicationMode.Collide;
 
     // 半径（仅半径模式有效）
     @ConfigEntry.Category("general")

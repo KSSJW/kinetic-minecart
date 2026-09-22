@@ -6,13 +6,13 @@ import net.minecraft.network.chat.Component;
 
 public class ConfigEnum {
 
-    public static enum ApplicaionMode {
+    public static enum ApplicationMode {
         Radius("option.kinetic-minecart.radius"),
         Collide("option.kinetic-minecart.collide");
 
         private final @NonNull String key;
 
-        ApplicaionMode(@NonNull String key) {
+        ApplicationMode(@NonNull String key) {
             this.key = key;
         }
 
