@@ -9,27 +9,19 @@ import net.minecraft.world.entity.vehicle.minecart.Minecart;
 public class CartBehavior {
 
     public static boolean isCollisionDisabledWith(AbstractMinecart cart, Entity target) {
-        if (
+        return (
             ConfigManager.isEnabled()
             && ConfigManager.isOverrideCollision()
             && KineticManager.isSpeedThresholdReached(cart)
             && !(target instanceof AbstractMinecart)
-        ) {
-            return true;
-        } else {
-            return false;
-        }
+        );
     }
 
     public static boolean isRidingDisabled(Minecart cart) {
-        if (
+        return (
             ConfigManager.isEnabled()
             && ConfigManager.isOverrideRiding()
             && KineticManager.isSpeedThresholdReached(cart)
-        ) {
-            return true;
-        } else {
-            return false;
-        }
+        );
     }
 }

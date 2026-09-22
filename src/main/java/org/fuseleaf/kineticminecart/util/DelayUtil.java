@@ -11,6 +11,7 @@ public class DelayUtil {
     public static void register() {
         if (delayTicks > 0) {
             delayTicks--;
+
             if (delayTicks == 0 && task != null) {
                 task.run();
                 task = null;
