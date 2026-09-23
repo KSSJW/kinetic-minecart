@@ -1,16 +1,15 @@
-package org.fuseleaf.kineticminecart.client.util;
+package org.fuseleaf.kineticminecart.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.ConfirmScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-public class IllegalOperationScreenUtil {
+public class IllegalOperationScreen {
 
-    // 拦截提示界面
     public static ConfirmScreen get(Screen parent) {
         return new ConfirmScreen(
-            (result) -> Minecraft.getInstance().gui.setScreen(parent), // 返回上一级菜单
+            (result) -> Minecraft.getInstance().gui.setScreen(parent),  // Return to the previous menu.
             Component.translatable("screen.kinetic-minecart.IllegalOperationScreen.title"),
             Component.translatable("screen.kinetic-minecart.IllegalOperationScreen.desc"),
             Component.translatable("screen.kinetic-minecart.IllegalOperationScreen.yes"),

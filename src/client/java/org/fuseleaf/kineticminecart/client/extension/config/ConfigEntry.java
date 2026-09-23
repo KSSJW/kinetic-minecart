@@ -1,7 +1,7 @@
 package org.fuseleaf.kineticminecart.client.extension.config;
 
+import org.fuseleaf.kineticminecart.client.gui.IllegalOperationScreen;
 import org.fuseleaf.kineticminecart.client.manager.ClientLoadManager;
-import org.fuseleaf.kineticminecart.client.util.IllegalOperationScreenUtil;
 import org.fuseleaf.kineticminecart.client.util.ToastUtil;
 import org.fuseleaf.kineticminecart.extension.config.ConfigData;
 
@@ -22,7 +22,7 @@ public class ConfigEntry implements ModMenuApi {
             boolean isMultiplayerWorld = inWorld && mc.getCurrentServer() != null;
 
             if (isMultiplayerWorld) {
-                return IllegalOperationScreenUtil.get(parent);  // 多人模式拦截
+                return IllegalOperationScreen.get(parent);
             }
 
             if (!ClientLoadManager.isAPIFound()) {
