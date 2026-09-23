@@ -3,9 +3,9 @@ package org.fuseleaf.kineticminecart.kinetic;
 import java.util.List;
 
 import org.fuseleaf.kineticminecart.config.ConfigManager;
+import org.fuseleaf.kineticminecart.entity.TargetFilter;
 import org.fuseleaf.kineticminecart.extension.config.ConfigEnum;
 import org.fuseleaf.kineticminecart.util.DelayUtil;
-import org.fuseleaf.kineticminecart.util.FilterUtil;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
@@ -38,7 +38,7 @@ public class KineticManager {
                     e -> (
                         e != cart
                         && e.isAlive()
-                        && !FilterUtil.isExclued(cart, e)
+                        && !TargetFilter.isExclued(cart, e)
                         && cart.getBoundingBox().intersects(e.getBoundingBox())
                     )
                 );
@@ -61,7 +61,7 @@ public class KineticManager {
                     e -> (
                         e != cart
                         && e.isAlive()
-                        && !FilterUtil.isExclued(cart, e)
+                        && !TargetFilter.isExclued(cart, e)
                         && e.getVehicle() != cart   // Exclude the passenger of this vehicle.
                     )
                 );

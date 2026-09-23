@@ -1,4 +1,4 @@
-package org.fuseleaf.kineticminecart.util;
+package org.fuseleaf.kineticminecart.entity;
 
 import org.fuseleaf.kineticminecart.config.ConfigManager;
 
@@ -10,9 +10,9 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
 
-public class FilterUtil {
+public class TargetFilter {
 
-    private FilterUtil() {}
+    private TargetFilter() {}
 
     public static boolean isExclued(AbstractMinecart minecart, Entity entity) {
         return isInDefaultExclusion(minecart, entity) || isInCustomExclusion(entity);

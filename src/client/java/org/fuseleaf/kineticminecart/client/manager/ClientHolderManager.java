@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 
 import org.fuseleaf.kineticminecart.client.util.ToastUtil;
 import org.fuseleaf.kineticminecart.config.ConfigManager;
-import org.fuseleaf.kineticminecart.util.ExclusionListUtil;
+import org.fuseleaf.kineticminecart.entity.ExclusionList;
 import org.fuseleaf.kineticminecart.util.LogUtil;
 
 import net.minecraft.network.chat.Component;
@@ -23,12 +23,12 @@ public class ClientHolderManager {
 
                 // 列表归一化
                 config.exclusionList = config.exclusionList.stream()
-                    .map(ExclusionListUtil::normalizeId)
+                    .map(ExclusionList::normalizeId)
                     .collect(Collectors.toList());
 
                 // 显示提示
                 Component title = Component.translatable("toast.kinetic-minecart.ExclusionList.title");
-                Component desc = ExclusionListUtil.buildMessage(ConfigManager.getExclusionList());
+                Component desc = ExclusionList.buildMessage(ConfigManager.getExclusionList());
                 ToastUtil.toast(title, desc);
             }
             LogUtil.print("The configuration has been saved.");
